@@ -1,5 +1,5 @@
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { useEffect, useState, useRef, useMemo } from "react";
+import { useEffect, useState, useRef } from "react";
 import rovianBg from "@/assets/rovian-bg.jpg";
 import {
   ArrowDown,
@@ -823,113 +823,52 @@ function SoftMeshBackground({ activeSlide }: { activeSlide: number }) {
   );
 }
 
-const royalThemes = [
-  {
-    bg: "from-amber-400 to-amber-600",
-    shadow: "shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3),_0_0_40px_rgba(245,158,11,0.4)]",
-    text: "text-amber-50",
-  }, // Gold
-  {
-    bg: "from-emerald-400 to-teal-600",
-    shadow: "shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3),_0_0_40px_rgba(16,185,129,0.4)]",
-    text: "text-emerald-50",
-  }, // Emerald
-  {
-    bg: "from-blue-500 to-indigo-700",
-    shadow: "shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3),_0_0_40px_rgba(59,130,246,0.4)]",
-    text: "text-blue-50",
-  }, // Sapphire
-  {
-    bg: "from-purple-500 to-fuchsia-700",
-    shadow: "shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3),_0_0_40px_rgba(168,85,247,0.4)]",
-    text: "text-purple-50",
-  }, // Amethyst
-  {
-    bg: "from-rose-500 to-red-700",
-    shadow: "shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3),_0_0_40px_rgba(244,63,94,0.4)]",
-    text: "text-rose-50",
-  }, // Ruby
-  {
-    bg: "from-cyan-400 to-blue-600",
-    shadow: "shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3),_0_0_40px_rgba(6,182,212,0.4)]",
-    text: "text-cyan-50",
-  }, // Diamond
-];
-
-function TrustSlideBadge({ slideIndex }: { slideIndex: number }) {
-  const currentFeature = trustFeatures[slideIndex % trustFeatures.length]!;
-  const royalTheme = royalThemes[slideIndex % royalThemes.length]!;
-  const Icon = currentFeature.icon;
-
-  return (
-    <motion.div
-      key={slideIndex}
-      initial={{ opacity: 0, scale: 0.88, rotateY: 35 }}
-      animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-      exit={{ opacity: 0, scale: 0.88, rotateY: -35 }}
-      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className={`relative z-10 flex flex-col items-center justify-center w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] rounded-full bg-gradient-to-br ${royalTheme.bg} ${royalTheme.shadow} p-10 text-center border-[6px] border-white/60 backdrop-blur-3xl select-none`}
-      style={{ transformStyle: "preserve-3d", backfaceVisibility: "hidden" }}
-    >
-      {/* Inner ring for elegance */}
-      <div className="absolute inset-3 rounded-full border border-white/30 pointer-events-none" />
-
-      <div className="grid h-16 w-16 sm:h-20 sm:w-20 place-items-center rounded-full bg-white/20 text-white shadow-inner mb-6 backdrop-blur-md">
-        <Icon className="h-8 w-8 sm:h-10 sm:w-10" />
-      </div>
-      <h3 className="font-display text-2xl sm:text-3xl font-bold text-slate-900 mb-3 tracking-wide drop-shadow-md">
-        {currentFeature.title}
-      </h3>
-      <p
-        className={`text-sm sm:text-base ${royalTheme.text} leading-relaxed font-medium drop-shadow-sm px-4`}
-      >
-        {currentFeature.description}
-      </p>
-    </motion.div>
-  );
-}
-
 export function TrustSection() {
   const [activeSlide, setActiveSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
 
-  // Restart timer cleanly on activeSlide change or pause, avoiding interruption collisions
   useEffect(() => {
-    if (isPaused) return;
-
     const timer = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % trustFeatures.length);
-    }, 4500);
-
+    }, 4000);
     return () => clearInterval(timer);
-  }, [activeSlide, isPaused]);
-
-  // Pause timer when user leaves tab to prevent rapid queued state updates on tab refocus
-  useEffect(() => {
-    const handleVisibilityChange = () => {
-      setIsPaused(document.hidden);
-    };
-    document.addEventListener("visibilitychange", handleVisibilityChange);
-    return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
   }, []);
 
-  const goToNext = () => setActiveSlide((prev) => (prev + 1) % trustFeatures.length);
-  const goToPrev = () =>
-    setActiveSlide((prev) => (prev - 1 + trustFeatures.length) % trustFeatures.length);
+  // Updated to include both a strong dark drop shadow for 3D depth + a soft colored ambient glow
+  const royalThemes = [
+    {
+      bg: "from-amber-400 to-amber-600",
+      shadow: "shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3),_0_0_40px_rgba(245,158,11,0.4)]",
+      text: "text-amber-50",
+    }, // Gold
+    {
+      bg: "from-emerald-400 to-teal-600",
+      shadow: "shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3),_0_0_40px_rgba(16,185,129,0.4)]",
+      text: "text-emerald-50",
+    }, // Emerald
+    {
+      bg: "from-blue-500 to-indigo-700",
+      shadow: "shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3),_0_0_40px_rgba(59,130,246,0.4)]",
+      text: "text-blue-50",
+    }, // Sapphire
+    {
+      bg: "from-purple-500 to-fuchsia-700",
+      shadow: "shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3),_0_0_40px_rgba(168,85,247,0.4)]",
+      text: "text-purple-50",
+    }, // Amethyst
+    {
+      bg: "from-rose-500 to-red-700",
+      shadow: "shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3),_0_0_40px_rgba(244,63,94,0.4)]",
+      text: "text-rose-50",
+    }, // Ruby
+    {
+      bg: "from-cyan-400 to-blue-600",
+      shadow: "shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3),_0_0_40px_rgba(6,182,212,0.4)]",
+      text: "text-cyan-50",
+    }, // Diamond
+  ];
 
-  const sparkles = useMemo(
-    () => [
-      { x: -80, y: -90, duration: 3.5, delay: 0 },
-      { x: 70, y: -110, duration: 4.2, delay: 0.5 },
-      { x: -120, y: -60, duration: 3.8, delay: 1.2 },
-      { x: 90, y: -40, duration: 4.5, delay: 0.8 },
-      { x: -30, y: -130, duration: 3.2, delay: 1.8 },
-      { x: 40, y: -80, duration: 4.0, delay: 0.2 },
-      { x: -95, y: 30, duration: 3.7, delay: 1.5 },
-      { x: 105, y: 20, duration: 4.4, delay: 0.9 },
-    ],
-    [],
-  );
+  const currentFeature = trustFeatures[activeSlide % trustFeatures.length]!;
+  const royalTheme = royalThemes[activeSlide % royalThemes.length]!;
 
   return (
     <Section className="relative py-32 overflow-hidden bg-transparent">
@@ -955,79 +894,73 @@ export function TrustSection() {
               </p>
             </Reveal>
 
-            {/* Slide Indicators & Controls */}
-            <div
-              className="mt-10 flex items-center justify-start gap-3 sm:gap-4 flex-wrap"
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => setIsPaused(false)}
-            >
-              <div className="flex items-center gap-2">
+            {/* Slide Indicators */}
+            <div className="mt-10 flex items-center justify-start gap-3">
+              {trustFeatures.map((_, i) => (
                 <button
-                  type="button"
-                  onClick={goToPrev}
-                  className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white/80 text-slate-600 shadow-xs hover:bg-white hover:text-slate-900 transition-colors cursor-pointer"
-                  aria-label="Previous capability"
-                >
-                  <ChevronLeft className="h-4 w-4" />
-                </button>
-                <button
-                  type="button"
-                  onClick={goToNext}
-                  className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white/80 text-slate-600 shadow-xs hover:bg-white hover:text-slate-900 transition-colors cursor-pointer"
-                  aria-label="Next capability"
-                >
-                  <ChevronRight className="h-4 w-4" />
-                </button>
-              </div>
-
-              <div className="flex items-center gap-2.5">
-                {trustFeatures.map((_, i) => (
-                  <button
-                    key={i}
-                    type="button"
-                    onClick={() => setActiveSlide(i)}
-                    className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                      i === activeSlide
-                        ? `w-10 bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.6)]`
-                        : `w-2.5 bg-slate-300 hover:bg-slate-400`
-                    }`}
-                    aria-label={`Go to slide ${i + 1}`}
-                  />
-                ))}
-              </div>
+                  key={i}
+                  onClick={() => setActiveSlide(i)}
+                  className={`h-2.5 rounded-full transition-all duration-500 cursor-pointer ${
+                    i === activeSlide
+                      ? `w-10 bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.6)]`
+                      : `w-2.5 bg-slate-300 hover:bg-slate-400`
+                  }`}
+                  aria-label={`Go to slide ${i + 1}`}
+                />
+              ))}
             </div>
           </div>
 
-          {/* Right Column: Circular Slideshow with 3D Perspective */}
-          <div
-            className="w-full flex flex-col items-center justify-center relative min-h-[440px] lg:min-h-[500px]"
-            style={{ perspective: 1200 }}
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-          >
+          {/* Right Column: Circular Slideshow */}
+          <div className="w-full flex flex-col items-center justify-center relative min-h-[440px] lg:min-h-[500px]">
             {/* Animated Elegant Sparkles */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-              {sparkles.map((s, i) => (
+              {[...Array(10)].map((_, i) => (
                 <motion.div
                   key={i}
                   animate={{
                     opacity: [0, 1, 0],
                     scale: [0.5, 1.2, 0.5],
-                    y: [0, s.y],
-                    x: [0, s.x],
+                    y: [0, -100 + Math.random() * -100],
+                    x: [0, (Math.random() - 0.5) * 200],
                   }}
                   transition={{
-                    duration: s.duration,
+                    duration: 3 + Math.random() * 2,
                     repeat: Infinity,
-                    delay: s.delay,
+                    delay: Math.random() * 2,
                   }}
                   className="absolute w-1.5 h-1.5 rounded-full bg-indigo-400 shadow-[0_0_12px_rgba(129,140,248,0.9)]"
                 />
               ))}
             </div>
 
-            <AnimatePresence mode="popLayout" initial={false}>
-              <TrustSlideBadge key={activeSlide} slideIndex={activeSlide} />
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeSlide}
+                initial={{ opacity: 0, scale: 0.8, rotateY: 90 }}
+                animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                exit={{ opacity: 0, scale: 0.8, rotateY: -90 }}
+                transition={{ duration: 0.7, type: "spring", bounce: 0.3 }}
+                className={`relative z-10 flex flex-col items-center justify-center w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] rounded-full bg-gradient-to-br ${royalTheme.bg} ${royalTheme.shadow} p-10 text-center border-[6px] border-white/60 backdrop-blur-3xl`}
+              >
+                {/* Inner ring for elegance */}
+                <div className="absolute inset-3 rounded-full border border-white/30 pointer-events-none" />
+
+                <div className="grid h-16 w-16 sm:h-20 sm:w-20 place-items-center rounded-full bg-white/20 text-white shadow-inner mb-6 backdrop-blur-md">
+                  {(() => {
+                    const Icon = currentFeature.icon;
+                    return <Icon className="h-8 w-8 sm:h-10 sm:w-10" />;
+                  })()}
+                </div>
+                <h3 className="font-display text-2xl sm:text-3xl font-bold text-slate-900 mb-3 tracking-wide drop-shadow-md">
+                  {currentFeature.title}
+                </h3>
+                <p
+                  className={`text-sm sm:text-base ${royalTheme.text} leading-relaxed font-medium drop-shadow-sm px-4`}
+                >
+                  {currentFeature.description}
+                </p>
+              </motion.div>
             </AnimatePresence>
           </div>
         </div>
