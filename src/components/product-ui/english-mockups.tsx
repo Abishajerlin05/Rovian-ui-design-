@@ -126,7 +126,7 @@ export function EnglishConversationMockup() {
                       "absolute top-2 right-2 grid h-5 w-5 place-items-center rounded-sm border transition-all cursor-pointer",
                       isPlaying
                         ? "border-[#044E3D] bg-[#E8F8F0] text-[#044E3D]"
-                        : "border-slate-200 bg-slate-50 text-slate-500 hover:text-slate-800"
+                        : "border-slate-200 bg-slate-50 text-slate-500 hover:text-slate-800",
                     )}
                     aria-label="Play message audio"
                   >
@@ -186,7 +186,7 @@ export function EnglishConversationMockup() {
             "relative grid h-10 w-10 place-items-center rounded-full text-white shadow-md transition-all cursor-pointer active:scale-95",
             isRecording
               ? "bg-red-600 ring-4 ring-red-200 animate-pulse"
-              : "bg-[#044E3D] hover:bg-[#033c2e]"
+              : "bg-[#044E3D] hover:bg-[#033c2e]",
           )}
           aria-label={isRecording ? "Stop speaking" : "Tap and speak"}
         >
@@ -206,7 +206,7 @@ export function EnglishConversationMockup() {
 export function EnglishWritingMockup() {
   const [topic, setTopic] = useState("The Impact of Social Media on Modern Youth");
   const [text, setText] = useState(
-    "Social media has completely transformed how young people communicate and discover information. While it fosters global connections, excessive screen time can reduce attention spans and sleep quality."
+    "Social media has completely transformed how young people communicate and discover information. While it fosters global connections, excessive screen time can reduce attention spans and sleep quality.",
   );
   const [isEvaluating, setIsEvaluating] = useState(false);
   const [isEvaluated, setIsEvaluated] = useState(false);
@@ -306,9 +306,7 @@ export function EnglishWritingMockup() {
           <div className="space-y-2.5 pt-1">
             <div className="flex items-center justify-between rounded-lg bg-[#E8F8F0] p-2.5 text-[#1D4ED8]">
               <div>
-                <span className="text-[9px] font-bold uppercase tracking-wider">
-                  Overall Score
-                </span>
+                <span className="text-[9px] font-bold uppercase tracking-wider">Overall Score</span>
                 <h4 className="font-display text-base font-bold">88 / 100 — Proficient</h4>
               </div>
               <CheckCircle2 className="h-5 w-5 text-[#1D4ED8]" />
@@ -330,8 +328,8 @@ export function EnglishWritingMockup() {
             </div>
 
             <p className="text-[10px] text-slate-600 leading-relaxed bg-white border border-slate-200 rounded-lg p-2">
-              💡 <strong>Key takeaway:</strong> Strong thesis structure and well-formed
-              compound clauses. High fluency and grammatical accuracy.
+              💡 <strong>Key takeaway:</strong> Strong thesis structure and well-formed compound
+              clauses. High fluency and grammatical accuracy.
             </p>
           </div>
         )}
@@ -418,8 +416,8 @@ export function EnglishReadingMockup() {
             </h4>
             <div className="mt-1.5 space-y-1.5 text-[11px] leading-relaxed text-slate-600">
               <p>
-                Rocky, a quick brown squirrel, lived in a tall banyan tree. One chilly morning,
-                he began an adventure. Winter was coming, and he needed to find nuts.
+                Rocky, a quick brown squirrel, lived in a tall banyan tree. One chilly morning, he
+                began an adventure. Winter was coming, and he needed to find nuts.
               </p>
               <p>
                 He scurried down into the park and spotted a hidden patch of juicy acorns under an
@@ -497,7 +495,7 @@ export function EnglishReadingMockup() {
                               "flex items-center gap-1 rounded-md border px-1.5 py-1 text-left text-[10px] font-medium transition-all cursor-pointer",
                               isChosen
                                 ? "border-[#044E3D] bg-[#E8F8F0]/60 text-[#044E3D] font-semibold"
-                                : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
+                                : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50",
                             )}
                           >
                             <span
@@ -505,7 +503,7 @@ export function EnglishReadingMockup() {
                                 "grid h-3.5 w-3.5 place-items-center rounded-xs text-[9px] font-bold shrink-0",
                                 isChosen
                                   ? "bg-[#044E3D] text-white"
-                                  : "bg-slate-100 text-slate-600"
+                                  : "bg-slate-100 text-slate-600",
                               )}
                             >
                               {opt.key}
@@ -528,7 +526,9 @@ export function EnglishReadingMockup() {
               onClick={() => setIsSubmitted(true)}
               className="w-full rounded-md bg-[#044E3D] hover:bg-[#033c2e] py-1.5 text-center text-[11px] font-semibold text-white shadow-xs transition-colors cursor-pointer"
             >
-              {isSubmitted ? "Submitted! Reviewing score..." : `Submit (${answeredCount}/5 Answered)`}
+              {isSubmitted
+                ? "Submitted! Reviewing score..."
+                : `Submit (${answeredCount}/5 Answered)`}
             </button>
           </div>
         </div>
@@ -542,7 +542,10 @@ export function EnglishReadingMockup() {
 // --------------------------------------------------------------------------
 export function EnglishVocabularyMockup() {
   const [activeTab, setActiveTab] = useState<"words" | "quiz">("quiz");
-  const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>({ 1: "B", 2: "C" });
+  const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>({
+    1: "B",
+    2: "C",
+  });
 
   const vocabQuestions = [
     {
@@ -608,7 +611,7 @@ export function EnglishVocabularyMockup() {
             "flex items-center gap-1 rounded-lg px-2.5 py-1 text-[11px] font-semibold transition-all cursor-pointer",
             activeTab === "words"
               ? "bg-[#044E3D] text-white shadow-xs"
-              : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
+              : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50",
           )}
         >
           <BookOpen className="h-3 w-3" />
@@ -622,7 +625,7 @@ export function EnglishVocabularyMockup() {
             "flex items-center gap-1 rounded-lg px-2.5 py-1 text-[11px] font-semibold transition-all cursor-pointer",
             activeTab === "quiz"
               ? "bg-[#044E3D] text-white shadow-xs"
-              : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
+              : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50",
           )}
         >
           <GraduationCap className="h-3 w-3" />
@@ -659,15 +662,13 @@ export function EnglishVocabularyMockup() {
                         "flex items-center gap-1.5 rounded-md border px-2 py-1 text-left text-[11px] font-medium transition-all cursor-pointer",
                         isChosen
                           ? "border-[#044E3D] bg-[#E8F8F0]/60 text-[#044E3D] font-semibold"
-                          : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
+                          : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50",
                       )}
                     >
                       <span
                         className={cn(
                           "grid h-4 w-4 place-items-center rounded-xs text-[9px] font-bold shrink-0",
-                          isChosen
-                            ? "bg-[#044E3D] text-white"
-                            : "bg-slate-100 text-slate-600"
+                          isChosen ? "bg-[#044E3D] text-white" : "bg-slate-100 text-slate-600",
                         )}
                       >
                         {opt.key}
@@ -689,7 +690,10 @@ export function EnglishVocabularyMockup() {
 // 05. GRAMMAR TAB MOCKUP
 // --------------------------------------------------------------------------
 export function EnglishGrammarMockup() {
-  const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>({ 1: "C", 2: "B" });
+  const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>({
+    1: "C",
+    2: "B",
+  });
 
   const grammarQuestions = [
     {
@@ -794,15 +798,13 @@ export function EnglishGrammarMockup() {
                         "flex items-center gap-1.5 rounded-md border px-2 py-1 text-left text-[11px] font-medium transition-all cursor-pointer",
                         isChosen
                           ? "border-[#044E3D] bg-[#E8F8F0]/60 text-[#044E3D] font-semibold"
-                          : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
+                          : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50",
                       )}
                     >
                       <span
                         className={cn(
                           "grid h-4 w-4 place-items-center rounded-xs text-[9px] font-bold shrink-0",
-                          isChosen
-                            ? "bg-[#044E3D] text-white"
-                            : "bg-slate-100 text-slate-600"
+                          isChosen ? "bg-[#044E3D] text-white" : "bg-slate-100 text-slate-600",
                         )}
                       >
                         {opt.key}
@@ -859,11 +861,11 @@ export function EnglishReadAloudMockup() {
         </h4>
 
         <p className="mt-1.5 text-[11px] sm:text-xs leading-relaxed text-slate-700">
-          My family is small but lovely. I live with my parents and my younger brother. My
-          father is a teacher. My mother is a homemaker. We often eat dinner together. My
-          brother and I play games. My grandparents visit us sometimes. They tell us
-          interesting stories. My family always supports me. We love spending time
-          together. Family is very important to me and makes me happy.
+          My family is small but lovely. I live with my parents and my younger brother. My father is
+          a teacher. My mother is a homemaker. We often eat dinner together. My brother and I play
+          games. My grandparents visit us sometimes. They tell us interesting stories. My family
+          always supports me. We love spending time together. Family is very important to me and
+          makes me happy.
         </p>
 
         {/* Tap to speak microphone button */}
@@ -875,7 +877,7 @@ export function EnglishReadAloudMockup() {
               "relative grid h-10 w-10 place-items-center rounded-full text-white shadow-md transition-all cursor-pointer active:scale-95",
               isRecording
                 ? "bg-red-600 ring-4 ring-red-200 animate-pulse"
-                : "bg-[#044E3D] hover:bg-[#033c2e]"
+                : "bg-[#044E3D] hover:bg-[#033c2e]",
             )}
             aria-label={isRecording ? "Stop speaking" : "Tap to speak"}
           >
@@ -906,7 +908,7 @@ export function CommunicativeEnglishWindow({ selectedIdx = 0 }: { selectedIdx: n
   const ActiveMockup = MOCKUP_COMPONENTS[selectedIdx] || EnglishConversationMockup;
 
   return (
-    <div className="w-full overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-[#F4F7FB] shadow-xl shadow-slate-200/50 flex flex-col justify-between min-h-[460px]">
+    <div className="w-full overflow-hidden rounded-2xl sm:rounded-3xl border border-white bg-[#F4F7FB] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] shadow-indigo-500/20 ring-1 ring-black/5 flex flex-col justify-between min-h-[460px] relative">
       {/* Top Rovian AI Navigation Bar */}
       <RovianAppHeader />
 

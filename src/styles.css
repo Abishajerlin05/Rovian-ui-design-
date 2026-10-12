@@ -31,7 +31,7 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
-  
+
   --color-success: var(--success);
   --color-warning: var(--warning);
   --color-danger: var(--danger);
@@ -52,7 +52,9 @@
   --font-display: "Manrope", sans-serif;
   --font-hand: "Caveat", cursive;
 
-  --shadow-product: 0 20px 60px -20px color-mix(in oklab, var(--foreground) 18%, transparent), 0 0 0 1px color-mix(in oklab, var(--border) 60%, transparent);
+  --shadow-product:
+    0 20px 60px -20px color-mix(in oklab, var(--foreground) 18%, transparent),
+    0 0 0 1px color-mix(in oklab, var(--border) 60%, transparent);
   --shadow-float: 0 16px 38px -12px color-mix(in oklab, var(--foreground) 22%, transparent);
   --shadow-glow: 0 0 50px -10px color-mix(in oklab, var(--primary) 45%, transparent);
   --shadow-glow-accent: 0 0 45px -10px color-mix(in oklab, var(--tutor-accent) 50%, transparent);
@@ -60,45 +62,45 @@
 
 :root {
   --radius: 0.75rem;
-  --background: #F8FAFC;
-  --foreground: #0F172A;
-  --card: #FFFFFF;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --card: #ffffff;
   --card-foreground: var(--foreground);
   --popover: var(--card);
   --popover-foreground: var(--foreground);
-  --primary: #2563EB;
-  --primary-foreground: #FFFFFF;
-  --secondary: #14B8A6;
-  --secondary-foreground: #FFFFFF;
-  --muted: #E2E8F0;
-  --muted-foreground: #64748B;
-  --accent: #FACC15;
-  --accent-foreground: #0F172A;
-  --destructive: #EF4444;
-  --destructive-foreground: #FFFFFF;
-  --border: #E2E8F0;
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+  --secondary: #14b8a6;
+  --secondary-foreground: #ffffff;
+  --muted: #e2e8f0;
+  --muted-foreground: #64748b;
+  --accent: #facc15;
+  --accent-foreground: #0f172a;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e2e8f0;
   --input: var(--border);
   --ring: var(--primary);
-  
-  --success: #10B981;
-  --warning: #F59E0B;
-  --danger: #EF4444;
-  
-  --paper: #FFFFFF;
+
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+
+  --paper: #ffffff;
   --ink-soft: #334155;
-  --line: #E2E8F0;
-  
-  --inverse: #0F172A;
-  --inverse-foreground: #F8FAFC;
-  --inverse-muted: #1E293B;
-  --inverse-muted-foreground: #94A3B8;
+  --line: #e2e8f0;
+
+  --inverse: #0f172a;
+  --inverse-foreground: #f8fafc;
+  --inverse-muted: #1e293b;
+  --inverse-muted-foreground: #94a3b8;
   --inverse-border: rgba(255, 255, 255, 0.14);
-  
-  --tutor-accent: #14B8A6;
-  --tutor-surface: #0F172A;
-  --interview: #1E293B;
-  --teacher: #2563EB;
-  --teacher-accent: #FACC15;
+
+  --tutor-accent: #14b8a6;
+  --tutor-surface: #0f172a;
+  --interview: #1e293b;
+  --teacher: #2563eb;
+  --teacher-accent: #facc15;
 }
 
 * {
@@ -118,11 +120,13 @@ body {
   overflow-x: hidden;
 }
 
-button, a {
+button,
+a {
   -webkit-tap-highlight-color: transparent;
 }
 
-button:focus-visible, a:focus-visible {
+button:focus-visible,
+a:focus-visible {
   outline: 2px solid var(--ring);
   outline-offset: 3px;
 }
@@ -139,31 +143,59 @@ button:focus-visible, a:focus-visible {
 /* Background Grids & Ambient Glows */
 .hero-grid {
   background-image:
-    linear-gradient(to right, color-mix(in oklab, var(--border) 65%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in oklab, var(--border) 65%, transparent) 1px, transparent 1px);
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--border) 65%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--border) 65%, transparent) 1px,
+      transparent 1px
+    );
   background-size: 40px 40px;
   mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 30%, transparent 85%);
 }
 
 .hero-glow {
-  background: radial-gradient(ellipse 60% 50% at 50% 25%, color-mix(in oklab, var(--primary) 20%, transparent), transparent 70%);
+  background: radial-gradient(
+    ellipse 60% 50% at 50% 25%,
+    color-mix(in oklab, var(--primary) 20%, transparent),
+    transparent 70%
+  );
   filter: blur(40px);
 }
 
 .bg-radial-subtle {
-  background: radial-gradient(circle at 50% 0%, color-mix(in oklab, var(--primary) 6%, transparent) 0%, transparent 65%);
+  background: radial-gradient(
+    circle at 50% 0%,
+    color-mix(in oklab, var(--primary) 6%, transparent) 0%,
+    transparent 65%
+  );
 }
 
 .bg-lesson-pattern {
   background-image:
-    radial-gradient(circle at 20% 20%, color-mix(in oklab, var(--tutor-accent) 26%, transparent), transparent 45%),
+    radial-gradient(
+      circle at 20% 20%,
+      color-mix(in oklab, var(--tutor-accent) 26%, transparent),
+      transparent 45%
+    ),
     linear-gradient(135deg, transparent 40%, color-mix(in oklab, var(--primary) 22%, transparent));
 }
 
-.interview-grid, .cta-grid {
+.interview-grid,
+.cta-grid {
   background-image:
-    linear-gradient(color-mix(in oklab, var(--inverse-border) 65%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in oklab, var(--inverse-border) 65%, transparent) 1px, transparent 1px);
+    linear-gradient(
+      color-mix(in oklab, var(--inverse-border) 65%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      color-mix(in oklab, var(--inverse-border) 65%, transparent) 1px,
+      transparent 1px
+    );
   background-size: 48px 48px;
   mask-image: radial-gradient(circle at center, black 40%, transparent 85%);
 }
@@ -184,7 +216,11 @@ button:focus-visible, a:focus-visible {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--foreground) 30%, color-mix(in oklab, var(--primary) 90%, black) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--foreground) 30%,
+    color-mix(in oklab, var(--primary) 90%, black) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -196,9 +232,18 @@ button:focus-visible, a:focus-visible {
 }
 
 @keyframes pulse-ring {
-  0% { transform: scale(0.95); opacity: 0.7; }
-  50% { transform: scale(1.08); opacity: 0.3; }
-  100% { transform: scale(0.95); opacity: 0.7; }
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
 }
 
 .animate-pulse-ring {
@@ -206,13 +251,21 @@ button:focus-visible, a:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }
 
-html, body { overflow-x: hidden !important; max-width: 100vw; width: 100vw; }
-
+html,
+body {
+  overflow-x: hidden !important;
+  max-width: 100vw;
+  width: 100vw;
+}

@@ -15,7 +15,6 @@ export function Footer() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f46e50a_1px,transparent_1px),linear-gradient(to_bottom,#4f46e50a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_80%,transparent_100%)] pointer-events-none" />
       <Container className="relative z-10">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_2.8fr]">
-          
           {/* Brand Info */}
           <div>
             <div className="flex items-center gap-2.5">
@@ -28,7 +27,8 @@ export function Footer() {
             </div>
 
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-slate-400 font-medium">
-              One connected AI-powered learning ecosystem for understanding doubts, practicing exams, mastering English fluency, and continuous progress intelligence.
+              One connected AI-powered learning ecosystem for understanding doubts, practicing
+              exams, mastering English fluency, and continuous progress intelligence.
             </p>
 
             <div className="mt-6 flex items-center gap-3">

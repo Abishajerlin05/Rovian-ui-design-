@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import React, { useEffect, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
 export function LiveRobot({ scrolled }: { scrolled: boolean }) {
   const reduce = useReducedMotion();
@@ -9,11 +9,11 @@ export function LiveRobot({ scrolled }: { scrolled: boolean }) {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({
         x: (e.clientX / window.innerWidth) * 2 - 1,
-        y: (e.clientY / window.innerHeight) * 2 - 1
+        y: (e.clientY / window.innerHeight) * 2 - 1,
       });
     };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   // Calculate eye movement with bounds
@@ -23,17 +23,17 @@ export function LiveRobot({ scrolled }: { scrolled: boolean }) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0, y: 50, rotate: -20 }}
-      animate={{ 
-        opacity: scrolled ? 0 : 1, 
-        scale: scrolled ? 0.8 : 1, 
+      animate={{
+        opacity: scrolled ? 0 : 1,
+        scale: scrolled ? 0.8 : 1,
         y: scrolled ? 50 : 0,
-        rotate: scrolled ? 20 : 0
+        rotate: scrolled ? 20 : 0,
       }}
       transition={{ duration: 0.5, type: "spring" }}
       className="fixed bottom-6 right-6 z-50 drop-shadow-2xl origin-bottom-right cursor-pointer"
     >
       {/* Floating Body */}
-      <motion.div 
+      <motion.div
         animate={reduce ? {} : { y: [0, -12, 0] }}
         transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
         className="relative flex flex-col items-center"
@@ -50,51 +50,57 @@ export function LiveRobot({ scrolled }: { scrolled: boolean }) {
 
         {/* Antenna */}
         <div className="relative w-1.5 h-6 bg-slate-300 dark:bg-slate-700 rounded-t-sm z-10">
-          <motion.div 
+          <motion.div
             animate={{ backgroundColor: ["#3b82f6", "#60a5fa", "#3b82f6"] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            className="absolute -top-3 -left-1.5 w-4 h-4 rounded-full shadow-[0_0_10px_#60a5fa]" 
+            className="absolute -top-3 -left-1.5 w-4 h-4 rounded-full shadow-[0_0_10px_#60a5fa]"
           />
         </div>
 
         {/* Head */}
         <div className="w-32 h-28 bg-white dark:bg-slate-800 border-4 border-slate-200 dark:border-slate-700 rounded-3xl flex flex-col items-center justify-center shadow-xl relative overflow-hidden z-20">
-          
           {/* Headphones / Ears */}
           <div className="absolute -left-1 top-1/2 -translate-y-1/2 w-2 h-10 bg-blue-500 rounded-r-md" />
           <div className="absolute -right-1 top-1/2 -translate-y-1/2 w-2 h-10 bg-blue-500 rounded-l-md" />
 
           {/* Screen / Visor */}
           <div className="w-24 h-14 bg-slate-900 rounded-2xl relative flex items-center justify-center gap-3 overflow-hidden shadow-inner">
-            
             {/* Left Eye */}
-            <motion.div 
-              animate={reduce ? {} : { 
-                x: eyeX, 
-                y: eyeY,
-                scaleY: [1, 1, 0.1, 1, 1] 
-              }}
+            <motion.div
+              animate={
+                reduce
+                  ? {}
+                  : {
+                      x: eyeX,
+                      y: eyeY,
+                      scaleY: [1, 1, 0.1, 1, 1],
+                    }
+              }
               transition={{
                 scaleY: { duration: 4, repeat: Infinity, times: [0, 0.95, 0.96, 0.97, 1] },
                 x: { type: "spring", stiffness: 150, damping: 20 },
-                y: { type: "spring", stiffness: 150, damping: 20 }
+                y: { type: "spring", stiffness: 150, damping: 20 },
               }}
-              className="w-4 h-6 bg-blue-400 rounded-full shadow-[0_0_12px_#60a5fa]" 
+              className="w-4 h-6 bg-blue-400 rounded-full shadow-[0_0_12px_#60a5fa]"
             />
 
             {/* Right Eye */}
-            <motion.div 
-              animate={reduce ? {} : { 
-                x: eyeX, 
-                y: eyeY,
-                scaleY: [1, 1, 0.1, 1, 1] 
-              }}
+            <motion.div
+              animate={
+                reduce
+                  ? {}
+                  : {
+                      x: eyeX,
+                      y: eyeY,
+                      scaleY: [1, 1, 0.1, 1, 1],
+                    }
+              }
               transition={{
                 scaleY: { duration: 4, repeat: Infinity, times: [0, 0.95, 0.96, 0.97, 1] },
                 x: { type: "spring", stiffness: 150, damping: 20 },
-                y: { type: "spring", stiffness: 150, damping: 20 }
+                y: { type: "spring", stiffness: 150, damping: 20 },
               }}
-              className="w-4 h-6 bg-blue-400 rounded-full shadow-[0_0_12px_#60a5fa]" 
+              className="w-4 h-6 bg-blue-400 rounded-full shadow-[0_0_12px_#60a5fa]"
             />
           </div>
 

@@ -30,7 +30,6 @@ export function Hero() {
 
   return (
     <section id="top" className="relative pb-0 pt-32 sm:pt-36 lg:min-h-0 lg:pb-8">
-      
       {/* Background wrapper to contain overflow without clipping the mockup */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         {/* Magical Holographic Book Background */}
@@ -58,7 +57,7 @@ export function Hero() {
           </motion.div>
 
           {/* Main Title */}
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, scale: reduce ? 1 : 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ type: "spring", bounce: reduce ? 0 : 0.5, duration: 0.8 }}
@@ -72,7 +71,9 @@ export function Hero() {
           </p>
 
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Learn concepts, clear doubts with live voice AI, practice adaptive MCQs, grade handwritten answers, generate syllabus lessons, and master competitive exams—all in one connected experience.
+            Learn concepts, clear doubts with live voice AI, practice adaptive MCQs, grade
+            handwritten answers, generate syllabus lessons, and master competitive exams—all in one
+            connected experience.
           </p>
 
           {/* CTA Group */}
@@ -95,21 +96,24 @@ export function Hero() {
           </div>
 
           {/* Feature Highlights Pills */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             animate="visible"
             variants={{
               hidden: { opacity: 0 },
-              visible: { opacity: 1, transition: { staggerChildren: reduce ? 0 : 0.1, delayChildren: reduce ? 0 : 0.3 } }
+              visible: {
+                opacity: 1,
+                transition: { staggerChildren: reduce ? 0 : 0.1, delayChildren: reduce ? 0 : 0.3 },
+              },
             }}
             className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-medium"
           >
             {featurePills.map((pill) => (
-              <motion.span 
-                key={pill} 
+              <motion.span
+                key={pill}
                 variants={{
                   hidden: { opacity: 0, y: reduce ? 0 : 10 },
-                  visible: { opacity: 1, y: 0 }
+                  visible: { opacity: 1, y: 0 },
                 }}
                 whileHover={reduce ? {} : { y: -2, scale: 1.02 }}
                 className="inline-flex items-center gap-2.5 rounded-full bg-white/90 dark:bg-slate-800/90 px-4 py-1.5 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md hover:border-primary/40 transition-all cursor-default text-slate-700 dark:text-slate-200 font-semibold backdrop-blur-sm group"
@@ -121,7 +125,6 @@ export function Hero() {
               </motion.span>
             ))}
           </motion.div>
-
         </div>
 
         {/* Hero Interactive Mockup Showcase */}

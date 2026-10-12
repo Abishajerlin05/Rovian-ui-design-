@@ -3,7 +3,11 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 export function Container({ children, className }: { children: ReactNode; className?: string }) {
-  return <div className={cn("mx-auto w-full max-w-[1240px] px-5 sm:px-8 lg:px-12", className)}>{children}</div>;
+  return (
+    <div className={cn("mx-auto w-full max-w-[1240px] px-5 sm:px-8 lg:px-12", className)}>
+      {children}
+    </div>
+  );
 }
 
 export function Badge({ children, dark = false }: { children: ReactNode; dark?: boolean }) {
@@ -13,10 +17,15 @@ export function Badge({ children, dark = false }: { children: ReactNode; dark?: 
         "inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] shadow-xs backdrop-blur-md transition-all",
         dark
           ? "border-inverse-border bg-inverse-muted/80 text-slate-200"
-          : "border-primary/20 bg-primary/8 text-primary shadow-primary/5"
+          : "border-primary/20 bg-primary/8 text-primary shadow-primary/5",
       )}
     >
-      <span className={cn("h-1.5 w-1.5 rounded-full", dark ? "bg-tutor-accent animate-pulse" : "bg-primary animate-pulse")} />
+      <span
+        className={cn(
+          "h-1.5 w-1.5 rounded-full",
+          dark ? "bg-tutor-accent animate-pulse" : "bg-primary animate-pulse",
+        )}
+      />
       {children}
     </span>
   );
@@ -41,7 +50,7 @@ export function SectionHeading({
       <h2
         className={cn(
           "mt-5 font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl lg:leading-[1.12]",
-          dark ? "text-white" : "text-foreground"
+          dark ? "text-white" : "text-foreground",
         )}
       >
         {title}
@@ -50,7 +59,7 @@ export function SectionHeading({
         <p
           className={cn(
             "mt-4 text-base leading-relaxed sm:text-lg",
-            dark ? "text-slate-300" : "text-muted-foreground"
+            dark ? "text-slate-300" : "text-muted-foreground",
           )}
         >
           {copy}
@@ -68,11 +77,7 @@ export function Reveal({
   className?: string;
   delay?: number;
 }) {
-  return (
-    <div className={className}>
-      {children}
-    </div>
-  );
+  return <div className={className}>{children}</div>;
 }
 
 export function ProductWindow({
@@ -89,17 +94,17 @@ export function ProductWindow({
   return (
     <div
       className={cn(
-        "overflow-hidden rounded-2xl border shadow-product transition-all duration-300",
+        "overflow-hidden rounded-2xl border shadow-[0_20px_80px_-20px_rgba(168,85,247,0.25),_0_0_40px_rgba(59,130,246,0.15)] transition-all duration-300",
         dark
           ? "border-inverse-border bg-inverse/95 text-white backdrop-blur-xl"
           : "border-border/80 bg-card/95 text-card-foreground backdrop-blur-xl",
-        className
+        className,
       )}
     >
       <div
         className={cn(
           "flex h-12 items-center justify-between border-b px-4",
-          dark ? "border-inverse-border bg-inverse-muted/60" : "border-border/70 bg-muted/40"
+          dark ? "border-inverse-border bg-inverse-muted/60" : "border-border/70 bg-muted/40",
         )}
       >
         <div className="flex items-center gap-2">
@@ -109,15 +114,19 @@ export function ProductWindow({
           <span
             className={cn(
               "ml-2 font-display text-xs font-semibold tracking-wide",
-              dark ? "text-slate-300" : "text-muted-foreground"
+              dark ? "text-slate-300" : "text-muted-foreground",
             )}
           >
             {title}
           </span>
         </div>
         <div className="flex items-center gap-1.5">
-          <span className={cn("h-1.5 w-1.5 rounded-full", dark ? "bg-inverse-border" : "bg-border")} />
-          <span className={cn("h-1.5 w-1.5 rounded-full", dark ? "bg-inverse-border" : "bg-border")} />
+          <span
+            className={cn("h-1.5 w-1.5 rounded-full", dark ? "bg-inverse-border" : "bg-border")}
+          />
+          <span
+            className={cn("h-1.5 w-1.5 rounded-full", dark ? "bg-inverse-border" : "bg-border")}
+          />
         </div>
       </div>
       {children}
@@ -137,7 +146,11 @@ export function Section({
   style?: React.CSSProperties;
 }) {
   return (
-    <section id={id} className={cn("relative scroll-mt-20 py-20 sm:py-28 lg:py-32", className)} style={style}>
+    <section
+      id={id}
+      className={cn("relative scroll-mt-20 py-20 sm:py-28 lg:py-32", className)}
+      style={style}
+    >
       {children}
     </section>
   );

@@ -7,7 +7,7 @@
   position: relative;
   overflow: hidden;
   background-color: #fff9fc;
-  background-image: 
+  background-image:
     radial-gradient(circle at 15% 25%, rgba(255, 182, 193, 0.35) 0%, transparent 55%),
     radial-gradient(circle at 85% 15%, rgba(216, 191, 216, 0.45) 0%, transparent 50%),
     radial-gradient(circle at 80% 85%, rgba(255, 218, 185, 0.35) 0%, transparent 55%),
@@ -21,13 +21,13 @@
 .stars-bg {
   position: absolute;
   inset: 0;
-  background-image: 
-    radial-gradient(2px 2px at 20px 30px, #d5c8e0, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 40px 70px, #e2d8e8, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 50px 160px, #d5c8e0, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 90px 40px, #ebd5e2, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 130px 80px, #d8ccde, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 160px 120px, #ebd5e2, rgba(0,0,0,0));
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, #d5c8e0, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 40px 70px, #e2d8e8, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 50px 160px, #d5c8e0, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 90px 40px, #ebd5e2, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 130px 80px, #d8ccde, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 160px 120px, #ebd5e2, rgba(0, 0, 0, 0));
   background-repeat: repeat;
   background-size: 200px 200px;
   opacity: 0.4;
@@ -35,8 +35,12 @@
 }
 
 @keyframes twinkle {
-  0% { opacity: 0.2; }
-  100% { opacity: 0.6; }
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0.6;
+  }
 }
 
 /* =================================
@@ -63,14 +67,26 @@
 }
 
 @media (max-width: 1400px) {
-  .ecosystem { transform: scale(0.6); margin: -260px 0; }
+  .ecosystem {
+    transform: scale(0.6);
+    margin: -260px 0;
+  }
 }
 @media (max-width: 1024px) {
-  .ecosystem-container { width: 100%; margin-top: 20px; }
-  .ecosystem { transform: scale(0.5); margin: -325px 0; }
+  .ecosystem-container {
+    width: 100%;
+    margin-top: 20px;
+  }
+  .ecosystem {
+    transform: scale(0.5);
+    margin: -325px 0;
+  }
 }
 @media (max-width: 600px) {
-  .ecosystem { transform: scale(0.35); margin: -422px 0; }
+  .ecosystem {
+    transform: scale(0.35);
+    margin: -422px 0;
+  }
 }
 
 /* =================================
@@ -89,8 +105,8 @@
   height: 160px;
   border-radius: 50%;
   background: radial-gradient(circle, #fdf2f8 0%, #f472b6 40%, #be185d 100%);
-  box-shadow: 
-    0 0 70px #f472b6, 
+  box-shadow:
+    0 0 70px #f472b6,
     inset 0 0 20px #fdf2f8;
   display: flex;
   flex-direction: column;
@@ -125,8 +141,14 @@
 }
 
 @keyframes pulseSun {
-  0% { transform: scale(0.9); opacity: 0.6; }
-  100% { transform: scale(1.1); opacity: 1; }
+  0% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
 }
 
 /* =================================
@@ -141,8 +163,12 @@
 }
 
 @keyframes revolve {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .planet-body {
@@ -187,8 +213,12 @@
 }
 
 @keyframes counterRevolve {
-  from { transform: translateY(-50%) rotate(0deg); }
-  to { transform: translateY(-50%) rotate(-360deg); }
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(-360deg);
+  }
 }
 
 .feature-icon-box {
@@ -219,9 +249,27 @@
 }
 
 /* Feature Colors */
-.feature-prepare .feature-icon-box { background: #f28a00; color: #fff; }
-.feature-practice .feature-icon-box { background: #2563eb; color: #fff; }
-.feature-communicate .feature-icon-box { background: #009fc5; color: #fff; }
-.feature-improve .feature-icon-box { background: #ec1762; color: #fff; }
-.feature-create .feature-icon-box { background: #8b1cff; color: #fff; }
-.feature-learn .feature-icon-box { background: #3b82f6; color: #fff; }
+.feature-prepare .feature-icon-box {
+  background: #f28a00;
+  color: #fff;
+}
+.feature-practice .feature-icon-box {
+  background: #2563eb;
+  color: #fff;
+}
+.feature-communicate .feature-icon-box {
+  background: #009fc5;
+  color: #fff;
+}
+.feature-improve .feature-icon-box {
+  background: #ec1762;
+  color: #fff;
+}
+.feature-create .feature-icon-box {
+  background: #8b1cff;
+  color: #fff;
+}
+.feature-learn .feature-icon-box {
+  background: #3b82f6;
+  color: #fff;
+}

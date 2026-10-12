@@ -55,7 +55,7 @@ import {
   FileQuestion,
   LogOut,
   BookOpen,
-  Tag
+  Tag,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -81,7 +81,9 @@ export function ChatMockup({ hero = false }: { hero?: boolean }) {
   const [audioTime, setAudioTime] = useState(5);
   const [evaluated, setEvaluated] = useState(false);
   const [inputValue, setInputValue] = useState("");
-  const [messages, setMessages] = useState<Array<{ role: "user" | "bot"; text: string; time: string }>>([
+  const [messages, setMessages] = useState<
+    Array<{ role: "user" | "bot"; text: string; time: string }>
+  >([
     {
       role: "user",
       text: "What is photosynthesis?",
@@ -151,7 +153,6 @@ export function ChatMockup({ hero = false }: { hero?: boolean }) {
     <div className="relative w-full max-w-3xl mx-auto">
       {/* Main Chat Container */}
       <div className="relative w-full overflow-hidden rounded-[2.5rem] border border-slate-200 bg-[#0f172a]/60 backdrop-blur-3xl shadow-[0_0_50px_rgba(37,99,235,0.2),0_0_50px_rgba(236,72,153,0.15)] transition-all text-slate-900">
-        
         {/* Glowing Background Orbs */}
         <div className="absolute top-0 right-0 -mt-20 -mr-20 h-72 w-72 rounded-full bg-cyan-500/20 blur-[100px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 -mb-20 -ml-20 h-80 w-80 rounded-full bg-fuchsia-500/20 blur-[100px] pointer-events-none" />
@@ -198,8 +199,12 @@ export function ChatMockup({ hero = false }: { hero?: boolean }) {
         </div>
 
         {/* Main Conversation Canvas */}
-        <div className={cn("p-6 pb-24 flex flex-col justify-end relative z-10", hero ? "min-h-[480px]" : "min-h-[440px]")}>
-          
+        <div
+          className={cn(
+            "p-6 pb-24 flex flex-col justify-end relative z-10",
+            hero ? "min-h-[480px]" : "min-h-[440px]",
+          )}
+        >
           <div className="flex flex-col gap-6">
             {/* Date Stamp */}
             <div className="flex justify-center mb-2">
@@ -238,7 +243,10 @@ export function ChatMockup({ hero = false }: { hero?: boolean }) {
 
                 // Bot Message
                 return (
-                  <div key={index} className="flex items-end gap-3 max-w-[90%] sm:max-w-[85%] w-full">
+                  <div
+                    key={index}
+                    className="flex items-end gap-3 max-w-[90%] sm:max-w-[85%] w-full"
+                  >
                     {/* Bot Avatar */}
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-600 shadow-[0_0_15px_rgba(56,189,248,0.4)] border border-cyan-400/30 z-10 mb-8">
                       <GraduationCap className="h-5 w-5 text-slate-900" />
@@ -308,7 +316,7 @@ export function ChatMockup({ hero = false }: { hero?: boolean }) {
               placeholder="Ask anything..."
               className="flex-1 bg-transparent text-[15px] font-medium text-slate-900 placeholder:text-slate-900/40 outline-none"
             />
-            
+
             <div className="flex items-center gap-4 pr-3 border-r border-slate-200">
               <button
                 type="button"
@@ -387,12 +395,12 @@ Format: Audio & Visual Interactive Lecture
   };
 
   return (
-    <div className="relative w-full overflow-hidden rounded-3xl border border-slate-200 bg-[#18181b] shadow-2xl transition-all text-slate-900">
+    <div className="relative w-full overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-2xl transition-all text-slate-900">
       {/* Top Header Bar */}
-      <div className="flex items-center justify-between border-b border-slate-200 bg-[#18181b] px-4 py-3 sm:px-6 sm:py-4">
+      <div className="flex items-center justify-between border-b border-slate-200 bg-white px-4 py-3 sm:px-6 sm:py-4">
         {/* Left: Avatar + Name + Status */}
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-2xl bg-[#27272a] text-blue-500 shrink-0">
+          <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 shrink-0">
             <Bot className="h-5 w-5 sm:h-6 sm:w-6" />
           </div>
           <div>
@@ -400,7 +408,7 @@ Format: Audio & Visual Interactive Lecture
               Abinaya
             </h3>
             <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-500 mt-0.5">
-              <span className="h-2 w-2 rounded-full bg-[#c2ff00]" />
+              <span className="h-2 w-2 rounded-full bg-emerald-500" />
               <span>Online</span>
             </div>
           </div>
@@ -418,7 +426,7 @@ Format: Audio & Visual Interactive Lecture
                 setIsPlaying(true);
               }
             }}
-            className="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors cursor-pointer mr-2"
+            className="text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors cursor-pointer mr-2"
           >
             Clear Chat
           </button>
@@ -433,7 +441,7 @@ Format: Audio & Visual Interactive Lecture
                 setIsPlaying(true);
               }
             }}
-            className="flex items-center gap-1.5 rounded-full bg-blue-600 hover:bg-blue-700 px-5 py-2 text-sm font-semibold text-slate-900 shadow-sm transition-all active:scale-95 cursor-pointer"
+            className="flex items-center gap-1.5 rounded-full bg-blue-600 hover:bg-blue-700 px-5 py-2 text-sm font-semibold text-white shadow-sm transition-all active:scale-95 cursor-pointer"
           >
             <span>New Chat</span>
           </button>
@@ -441,7 +449,7 @@ Format: Audio & Visual Interactive Lecture
       </div>
 
       {/* Video Canvas - Playing Teacher on loop */}
-      <div className="relative w-full bg-slate-950 aspect-[4/3] sm:aspect-[16/10] overflow-hidden group">
+      <div className="relative w-full bg-slate-100 aspect-[4/3] sm:aspect-[16/10] overflow-hidden group border-b border-slate-100">
         <video
           ref={videoRef}
           src={teacherVideo}
@@ -451,19 +459,17 @@ Format: Audio & Visual Interactive Lecture
           playsInline
           className="w-full h-full object-cover select-none"
         />
-
-        {/* No hover controls for dark version to match screenshot */}
       </div>
 
       {/* Bottom Bar: Unified Pill Input with Download Transcript */}
-      <div className="p-5 bg-[#18181b]">
+      <div className="p-5 bg-white border-t border-slate-100">
         <div className="flex flex-col gap-4">
           <form
             onSubmit={(e) => {
               e.preventDefault();
               setQuestionInput("");
             }}
-            className="w-full flex items-center gap-3 rounded-full bg-[#111115] border border-slate-200 p-2 pl-6 focus-within:border-slate-200 transition-all"
+            className="w-full flex items-center gap-3 rounded-full bg-slate-50 border border-slate-200 p-2 pl-6 focus-within:border-blue-300 focus-within:ring-4 focus-within:ring-blue-500/10 transition-all shadow-sm"
           >
             <input
               type="text"
@@ -472,23 +478,23 @@ Format: Audio & Visual Interactive Lecture
               placeholder="Ask your question..."
               className="flex-1 bg-transparent text-sm text-slate-900 placeholder:text-slate-500 outline-none min-w-0"
             />
-            
+
             <button
               type="button"
               aria-label="Voice input"
               onClick={() => setQuestionInput("Explain the storming of the Bastille")}
-              className="text-slate-500 hover:text-slate-900 transition-colors cursor-pointer shrink-0"
+              className="text-slate-400 hover:text-blue-600 transition-colors cursor-pointer shrink-0"
               title="Voice input demo"
             >
-              <Mic className="h-4.5 w-4.5" />
+              <Mic className="h-5 w-5" />
             </button>
 
             <button
               type="submit"
               aria-label="Send question"
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#1f2937] hover:bg-slate-200 text-slate-900 transition-transform active:scale-90 cursor-pointer"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-sm transition-transform active:scale-95 cursor-pointer"
             >
-              <ArrowUp className="h-4 w-4 stroke-[2.5]" />
+              <ArrowUp className="h-5 w-5 stroke-[2.5]" />
             </button>
           </form>
 
@@ -496,7 +502,7 @@ Format: Audio & Visual Interactive Lecture
             <button
               type="button"
               onClick={handleDownloadTranscript}
-              className="flex items-center gap-2 rounded-full bg-blue-600 hover:bg-blue-700 px-5 py-2.5 text-sm font-semibold text-slate-900 shadow-xs transition-all active:scale-95 cursor-pointer"
+              className="flex items-center gap-2 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-100 border border-blue-100 px-5 py-2.5 text-sm font-semibold transition-all active:scale-95 cursor-pointer"
             >
               <Download className="h-4 w-4" />
               Download Transcript
@@ -505,7 +511,7 @@ Format: Audio & Visual Interactive Lecture
         </div>
 
         {downloadSuccess && (
-          <div className="mt-3 text-right pr-4 text-xs font-medium text-[#c2ff00] animate-fadeIn">
+          <div className="mt-3 text-right pr-4 text-xs font-semibold text-emerald-600 animate-fadeIn">
             ✓ Transcript downloaded successfully!
           </div>
         )}
@@ -528,26 +534,29 @@ export function StudioMockup() {
 
   const settingOptions = [
     {
-      id: "short",
+      id: "short" as const,
       label: "Short Content",
       tooltip: {
-        description: "Quick, high-level audio/video summaries for specific topics. Perfect for rapid review.",
+        description:
+          "Quick, high-level audio/video summaries for specific topics. Perfect for rapid review.",
         duration: "~30 seconds",
       },
     },
     {
-      id: "long",
+      id: "long" as const,
       label: "Long Content",
       tooltip: {
-        description: "In-depth, full-chapter audio/video content. Best for comprehensive learning and deep dives.",
+        description:
+          "In-depth, full-chapter audio/video content. Best for comprehensive learning and deep dives.",
         duration: "~5–10 minutes",
       },
     },
     {
-      id: "custom",
+      id: "custom" as const,
       label: "Custom",
       tooltip: {
-        description: "Personalized content generated to your specific filters and duration preferences.",
+        description:
+          "Personalized content generated to your specific filters and duration preferences.",
         duration: "You choose the duration",
       },
     },
@@ -603,7 +612,11 @@ export function StudioMockup() {
               onClick={() => setIsLangOpen(!isLangOpen)}
               className="w-full h-11 border border-slate-200/90 rounded-xl px-4 bg-white text-xs sm:text-sm text-slate-500 flex items-center justify-between hover:border-slate-300 transition-all shadow-2xs cursor-pointer"
             >
-              <span className={language === "Select Language" ? "text-slate-500" : "text-slate-900 font-medium"}>
+              <span
+                className={
+                  language === "Select Language" ? "text-slate-500" : "text-slate-900 font-medium"
+                }
+              >
                 {language}
               </span>
               <ChevronDown className="h-4 w-4 text-slate-500" />
@@ -630,9 +643,7 @@ export function StudioMockup() {
 
           {/* Col 2, Row 1: Content Type */}
           <div>
-            <label className="block text-xs font-semibold text-slate-700 mb-2">
-              Content Type
-            </label>
+            <label className="block text-xs font-semibold text-slate-700 mb-2">Content Type</label>
             <div className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200/80 bg-slate-50/70 p-1">
               <button
                 type="button"
@@ -641,7 +652,7 @@ export function StudioMockup() {
                   "flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer",
                   contentType === "video"
                     ? "bg-white text-slate-900 shadow-2xs border border-slate-200/80"
-                    : "text-slate-600 hover:text-slate-900"
+                    : "text-slate-600 hover:text-slate-900",
                 )}
               >
                 <Play className="h-3.5 w-3.5 fill-red-500 text-red-500" />
@@ -655,7 +666,7 @@ export function StudioMockup() {
                   "flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all cursor-pointer",
                   contentType === "audio"
                     ? "bg-white text-slate-900 shadow-2xs border border-slate-200/80 font-semibold"
-                    : "text-slate-600 hover:text-slate-900"
+                    : "text-slate-600 hover:text-slate-900",
                 )}
               >
                 <Volume2 className="h-3.5 w-3.5 text-blue-500" />
@@ -680,14 +691,14 @@ export function StudioMockup() {
                 <div key={item.id} className="relative">
                   <button
                     type="button"
-                    onClick={() => setGeneratorSetting(item.id as any)}
+                    onClick={() => setGeneratorSetting(item.id)}
                     onMouseEnter={() => setHoveredSetting(item.id)}
                     onMouseLeave={() => setHoveredSetting(null)}
                     className={cn(
                       "px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer relative z-10",
                       generatorSetting === item.id
                         ? "bg-[#1D4ED8] text-slate-900 shadow-xs font-semibold"
-                        : "text-slate-600 hover:text-slate-900"
+                        : "text-slate-600 hover:text-slate-900",
                     )}
                   >
                     ● {item.label}
@@ -722,9 +733,7 @@ export function StudioMockup() {
 
           {/* Col 2, Row 2: Duration */}
           <div>
-            <label className="block text-xs font-bold text-slate-800 mb-1.5">
-              Duration
-            </label>
+            <label className="block text-xs font-bold text-slate-800 mb-1.5">Duration</label>
             <div className="flex items-center">
               <input
                 type="text"
@@ -750,7 +759,18 @@ export function StudioMockup() {
       <div className="hidden lg:flex flex-col items-center justify-center relative w-8 shrink-0">
         <div className="w-px h-full bg-slate-200/80"></div>
         <div className="absolute top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-md shadow-blue-500/20 z-10 border-4 border-[#fafafa]">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 16l-4-4m0 0l4-4m-4 4h18M17 8l4 4m0 0l-4 4m4-4H2"/></svg>
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M7 16l-4-4m0 0l4-4m-4 4h18M17 8l4 4m0 0l-4 4m4-4H2" />
+          </svg>
         </div>
       </div>
 
@@ -760,10 +780,22 @@ export function StudioMockup() {
         <div className="flex items-start justify-between mb-8">
           <div className="flex items-start gap-2.5">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 border border-blue-100 text-[#2563EB] shrink-0 shadow-2xs">
-              <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                className="h-5 w-5"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
             </div>
             <div>
-              <h4 className="text-sm sm:text-base font-bold text-slate-900 leading-tight">Subjects</h4>
+              <h4 className="text-sm sm:text-base font-bold text-slate-900 leading-tight">
+                Subjects
+              </h4>
               <p className="text-xs text-slate-500 mt-0.5">Maximum 1 subject allowed</p>
             </div>
           </div>
@@ -817,7 +849,7 @@ export function StudioMockup() {
                   "w-full text-left px-5 py-3 text-xs sm:text-sm transition-colors cursor-pointer block",
                   subject === sub
                     ? "bg-blue-50/80 text-blue-700 font-semibold"
-                    : "text-slate-700 hover:bg-slate-50 hover:text-slate-900"
+                    : "text-slate-700 hover:bg-slate-50 hover:text-slate-900",
                 )}
               >
                 {sub}
@@ -845,8 +877,8 @@ export function StudioMockup() {
               isGenerating
                 ? "bg-blue-400 text-slate-900 cursor-wait"
                 : subject
-                ? "bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-slate-900 shadow-purple-500/25"
-                : "bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 text-slate-900 shadow-purple-500/25"
+                  ? "bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-slate-900 shadow-purple-500/25"
+                  : "bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 text-slate-900 shadow-purple-500/25",
             )}
           >
             <Wand2 className="h-4 w-4" />
@@ -956,7 +988,8 @@ const singleQuestion = {
     { letter: "D", text: "Golgi apparatus" },
   ],
   correct: "B",
-  explanation: "Mitochondria produce most of the chemical energy (ATP) needed by the cell through cellular respiration.",
+  explanation:
+    "Mitochondria produce most of the chemical energy (ATP) needed by the cell through cellular respiration.",
 };
 
 export function QuizMockup() {
@@ -1019,10 +1052,7 @@ export function QuizMockup() {
               QUESTION
             </span>
             <div className="text-xs sm:text-sm font-semibold text-slate-500">
-              <span className="font-extrabold text-blue-400 text-sm sm:text-base">
-                01
-              </span>{" "}
-              / 5
+              <span className="font-extrabold text-blue-400 text-sm sm:text-base">01</span> / 5
             </div>
           </div>
 
@@ -1038,7 +1068,9 @@ export function QuizMockup() {
           {/* Countdown Timer Pill */}
           <div className="flex items-center gap-1.5 sm:gap-2 rounded-full border border-orange-500/20 bg-orange-500/10 px-3.5 sm:px-4 py-1.5 text-xs font-semibold text-orange-400 shadow-2xs">
             <Clock className="h-3.5 w-3.5 stroke-[2.2] text-orange-400" />
-            <span className="font-mono tracking-tight font-bold text-xs sm:text-sm">{formatTimer(secondsLeft)}</span>
+            <span className="font-mono tracking-tight font-bold text-xs sm:text-sm">
+              {formatTimer(secondsLeft)}
+            </span>
           </div>
         </div>
       </div>
@@ -1072,7 +1104,12 @@ export function QuizMockup() {
                       ? isCorrect
                         ? {
                             scale: [1, 1.06, 0.98, 1],
-                            transition: { duration: 0.4, type: "spring", stiffness: 500, damping: 18 },
+                            transition: {
+                              duration: 0.4,
+                              type: "spring",
+                              stiffness: 500,
+                              damping: 18,
+                            },
                           }
                         : {
                             x: [0, -4, 4, -3, 3, 0],
@@ -1084,9 +1121,9 @@ export function QuizMockup() {
                     "w-full rounded-2xl border p-4 sm:p-5 flex items-center justify-between text-left transition-all cursor-pointer group min-h-[72px] sm:min-h-[76px] relative z-10",
                     isSelected
                       ? isCorrect
-                        ? "border-transparent bg-[#17203A] shadow-xl shadow-blue-500/10 before:absolute before:inset-0 before:-z-10 before:rounded-2xl before:p-[1.5px] before:bg-gradient-to-r before:from-blue-500 before:to-purple-500 before:[mask-image:linear-gradient(white,white)] before:[mask-clip:content-box,border-box]"
-                        : "border-red-500/50 bg-red-950/20 shadow-md shadow-red-500/10"
-                      : "border-slate-200 bg-slate-50/90 hover:bg-[#131A2B] hover:border-slate-300"
+                        ? "border-transparent bg-gradient-to-r from-blue-50 to-indigo-50 shadow-xl shadow-blue-500/10 ring-2 ring-blue-500"
+                        : "border-red-300 bg-red-50 shadow-md shadow-red-500/10"
+                      : "border-slate-200 bg-slate-50/90 hover:bg-blue-50 hover:border-blue-300",
                   )}
                 >
                   <div className="flex items-center gap-3.5 sm:gap-4">
@@ -1105,7 +1142,7 @@ export function QuizMockup() {
                           ? isCorrect
                             ? "bg-gradient-to-r from-blue-400 to-blue-500 text-slate-900 shadow-xs"
                             : "bg-red-500 text-slate-900 shadow-xs"
-                          : "bg-slate-100 text-slate-500 group-hover:bg-slate-200"
+                          : "bg-slate-100 text-slate-500 group-hover:bg-slate-200",
                       )}
                     >
                       {opt.letter}.
@@ -1117,7 +1154,7 @@ export function QuizMockup() {
                           ? isCorrect
                             ? "text-slate-900 font-bold"
                             : "text-slate-900 font-semibold"
-                          : "text-slate-600 font-medium"
+                          : "text-slate-600 font-medium",
                       )}
                     >
                       {opt.text}
@@ -1134,7 +1171,7 @@ export function QuizMockup() {
                         transition={{ type: "spring", stiffness: 600, damping: 22 }}
                         className={cn(
                           "flex h-7 w-7 items-center justify-center rounded-full shrink-0 ml-2 shadow-[0_0_12px_rgba(139,92,246,0.6)]",
-                          isCorrect ? "bg-[#8B5CF6] text-slate-900" : "bg-red-500 text-slate-900"
+                          isCorrect ? "bg-[#8B5CF6] text-slate-900" : "bg-red-500 text-slate-900",
                         )}
                       >
                         {isCorrect ? (
@@ -1163,7 +1200,7 @@ export function QuizMockup() {
                 "mt-6 sm:mt-8 rounded-2xl p-4 sm:p-5 flex items-start gap-3.5 border transition-all text-left shadow-lg",
                 selectedAnswer === singleQuestion.correct
                   ? "bg-blue-900/20 border-blue-500/30 text-blue-100"
-                  : "bg-red-900/20 border-red-500/30 text-red-100"
+                  : "bg-red-900/20 border-red-500/30 text-red-100",
               )}
             >
               <motion.div
@@ -1174,7 +1211,7 @@ export function QuizMockup() {
                   "h-8 w-8 rounded-xl flex items-center justify-center shrink-0 mt-0.5 shadow-2xs text-sm font-bold",
                   selectedAnswer === singleQuestion.correct
                     ? "bg-blue-600 text-white"
-                    : "bg-red-500 text-slate-900"
+                    : "bg-red-500 text-slate-900",
                 )}
               >
                 {selectedAnswer === singleQuestion.correct ? "🎉" : "💡"}
@@ -1215,7 +1252,10 @@ export function QuizMockup() {
             type="button"
             onClick={handleNext}
             className="rounded-full bg-gradient-to-r from-[#4CA1AF] to-[#2C3E50] hover:from-[#3a8b98] hover:to-[#1b2b3a] px-6 sm:px-7 py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-slate-900 shadow-lg shadow-[#4CA1AF]/20 transition-all flex items-center gap-2 cursor-pointer active:scale-95"
-            style={{ backgroundImage: 'linear-gradient(to right, #4facfe 0%, #00f2fe 100%)', boxShadow: '0 4px 15px 0 rgba(79, 172, 254, 0.3)' }}
+            style={{
+              backgroundImage: "linear-gradient(to right, #4facfe 0%, #00f2fe 100%)",
+              boxShadow: "0 4px 15px 0 rgba(79, 172, 254, 0.3)",
+            }}
           >
             <span>Next Question</span>
             <ArrowRight className="h-4 w-4 stroke-[2.2]" />
@@ -1446,17 +1486,21 @@ export function EvaluationMockup() {
                         "flex items-center justify-between rounded-full border px-4 py-2 text-left transition-all",
                         isActive
                           ? "border-blue-400/50 bg-blue-50/30 text-blue-800 font-medium dark:border-blue-500 dark:bg-transparent dark:text-blue-400 shadow-sm"
-                          : "border-slate-200/50 bg-transparent text-slate-700 hover:border-slate-300 hover:bg-white/20 dark:border-border dark:bg-transparent dark:text-slate-600"
+                          : "border-slate-200/50 bg-transparent text-slate-700 hover:border-slate-300 hover:bg-white/20 dark:border-border dark:bg-transparent dark:text-slate-600",
                       )}
                     >
                       <div className="flex items-center gap-2.5 min-w-0">
                         <span
                           className={cn(
                             "h-2 w-2 rounded-full shrink-0",
-                            isActive ? "bg-blue-600 dark:bg-blue-500" : "bg-slate-300 dark:bg-slate-600"
+                            isActive
+                              ? "bg-blue-600 dark:bg-blue-500"
+                              : "bg-slate-300 dark:bg-slate-600",
                           )}
                         />
-                        <span className="truncate text-xs sm:text-[13px] leading-snug">{topic.title}</span>
+                        <span className="truncate text-xs sm:text-[13px] leading-snug">
+                          {topic.title}
+                        </span>
                       </div>
                       {isActive && (
                         <Check className="h-4 w-4 text-blue-600 dark:text-blue-500 shrink-0 stroke-[2.5] ml-2" />
@@ -1481,7 +1525,7 @@ export function EvaluationMockup() {
                       "rounded-full px-4 py-1 text-xs font-semibold transition-all",
                       inputMode === "type"
                         ? "bg-white/30 text-teal-700 shadow-sm dark:bg-transparent dark:text-teal-400"
-                        : "text-slate-600 hover:text-slate-800 dark:text-muted-foreground"
+                        : "text-slate-600 hover:text-slate-800 dark:text-muted-foreground",
                     )}
                   >
                     Type
@@ -1493,7 +1537,7 @@ export function EvaluationMockup() {
                       "rounded-full px-3.5 py-1 text-xs font-medium transition-all",
                       inputMode === "upload"
                         ? "bg-white/30 text-teal-700 shadow-sm dark:bg-transparent dark:text-teal-400"
-                        : "text-slate-600 hover:text-slate-800 dark:text-muted-foreground"
+                        : "text-slate-600 hover:text-slate-800 dark:text-muted-foreground",
                     )}
                   >
                     Upload
@@ -1507,7 +1551,7 @@ export function EvaluationMockup() {
                   <p className="text-sm font-semibold text-slate-900 dark:text-foreground">
                     {topicInput || selectedTopic.title}
                   </p>
-                  
+
                   {/* Body paragraph with typing cursor */}
                   <div className="mt-3 relative">
                     <textarea
@@ -1525,7 +1569,9 @@ export function EvaluationMockup() {
                   <div className="grid h-12 w-12 place-items-center rounded-full bg-teal-50 text-teal-600 dark:bg-teal-950/30 dark:text-teal-400">
                     <Upload className="h-6 w-6" />
                   </div>
-                  <p className="mt-3 text-sm font-semibold text-slate-900 dark:text-foreground">Upload Handwritten Answer</p>
+                  <p className="mt-3 text-sm font-semibold text-slate-900 dark:text-foreground">
+                    Upload Handwritten Answer
+                  </p>
                   <p className="mt-1 text-xs text-slate-500 dark:text-muted-foreground">
                     Drop your paper photo or scan (PNG, JPG, or PDF up to 10MB)
                   </p>
@@ -1579,7 +1625,8 @@ export function EvaluationMockup() {
                 Writing Evaluation
               </h3>
               <p className="mt-1 text-xs sm:text-[13.5px] text-slate-500 dark:text-muted-foreground">
-                Review your performance and get AI feedback for &ldquo;{topicInput || selectedTopic.title}&rdquo;
+                Review your performance and get AI feedback for &ldquo;
+                {topicInput || selectedTopic.title}&rdquo;
               </p>
             </div>
 
@@ -1649,7 +1696,9 @@ export function EvaluationMockup() {
                     <div className="mt-2 flex items-baseline justify-between gap-1">
                       <span className="text-base sm:text-lg font-bold text-slate-900 dark:text-foreground">
                         {metric.score}{" "}
-                        <span className="text-xs font-normal text-slate-500 dark:text-muted-foreground">/ {metric.max}</span>
+                        <span className="text-xs font-normal text-slate-500 dark:text-muted-foreground">
+                          / {metric.max}
+                        </span>
                       </span>
                       <span className="rounded-full bg-blue-50 px-2 py-0.5 text-[10px] sm:text-[11px] font-semibold text-blue-600 dark:bg-primary/10 dark:text-primary">
                         {metric.tag}
@@ -1695,7 +1744,9 @@ export function EvaluationMockup() {
                 size="sm"
                 onClick={() => {
                   setIsEvaluated(false);
-                  const nextIndex = (EVALUATION_TOPICS.findIndex((t) => t.id === selectedTopic.id) + 1) % EVALUATION_TOPICS.length;
+                  const nextIndex =
+                    (EVALUATION_TOPICS.findIndex((t) => t.id === selectedTopic.id) + 1) %
+                    EVALUATION_TOPICS.length;
                   const nextTopic = EVALUATION_TOPICS[nextIndex] ?? DEFAULT_TOPIC;
                   handleSelectTopic(nextTopic);
                 }}
@@ -1721,31 +1772,41 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
       label: "Total Responses",
       value: "27",
       icon: Users,
-      iconColor: dark ? "text-indigo-400 bg-indigo-500/10 border-indigo-500/20" : "text-blue-600 bg-blue-50 border-blue-200/50",
+      iconColor: dark
+        ? "text-indigo-400 bg-indigo-500/10 border-indigo-500/20"
+        : "text-blue-600 bg-blue-50 border-blue-200/50",
     },
     {
       label: "Average Score",
       value: "640 / 1000",
       icon: Star,
-      iconColor: dark ? "text-amber-400 bg-amber-500/10 border-amber-500/20" : "text-amber-500 bg-amber-50 border-amber-200/50",
+      iconColor: dark
+        ? "text-amber-400 bg-amber-500/10 border-amber-500/20"
+        : "text-amber-500 bg-amber-50 border-amber-200/50",
     },
     {
       label: "Median Score",
       value: "600 / 1000",
       icon: BarChart2,
-      iconColor: dark ? "text-emerald-400 bg-emerald-500/10 border-emerald-500/20" : "text-cyan-600 bg-cyan-50 border-cyan-200/50",
+      iconColor: dark
+        ? "text-emerald-400 bg-emerald-500/10 border-emerald-500/20"
+        : "text-cyan-600 bg-cyan-50 border-cyan-200/50",
     },
     {
       label: "Min Score",
       value: "180 / 1000",
       icon: TrendingDown,
-      iconColor: dark ? "text-rose-400 bg-rose-500/10 border-rose-500/20" : "text-rose-500 bg-rose-50 border-rose-200/50",
+      iconColor: dark
+        ? "text-rose-400 bg-rose-500/10 border-rose-500/20"
+        : "text-rose-500 bg-rose-50 border-rose-200/50",
     },
     {
       label: "Max Score",
       value: "960 / 1000",
       icon: TrendingUp,
-      iconColor: dark ? "text-blue-400 bg-blue-500/10 border-blue-500/20" : "text-blue-600 bg-blue-50 border-blue-200/50",
+      iconColor: dark
+        ? "text-blue-400 bg-blue-500/10 border-blue-500/20"
+        : "text-blue-600 bg-blue-50 border-blue-200/50",
     },
   ];
 
@@ -1774,7 +1835,9 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
       correct: 10,
       total: 10,
       pct: "96%",
-      badge: dark ? "bg-blue-500/10 text-blue-400 border-blue-500/20" : "bg-blue-50 text-blue-700 border-blue-200/60",
+      badge: dark
+        ? "bg-blue-500/10 text-blue-400 border-blue-500/20"
+        : "bg-blue-50 text-blue-700 border-blue-200/60",
     },
     {
       rank: "#2",
@@ -1784,7 +1847,9 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
       correct: 9,
       total: 10,
       pct: "88%",
-      badge: dark ? "bg-indigo-500/10 text-indigo-400 border-indigo-500/20" : "bg-indigo-50 text-indigo-700 border-indigo-200/60",
+      badge: dark
+        ? "bg-indigo-500/10 text-indigo-400 border-indigo-500/20"
+        : "bg-indigo-50 text-indigo-700 border-indigo-200/60",
     },
     {
       rank: "#3",
@@ -1794,7 +1859,9 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
       correct: 8,
       total: 10,
       pct: "74%",
-      badge: dark ? "bg-indigo-500/10 text-indigo-400 border-indigo-500/20" : "bg-indigo-50 text-indigo-700 border-indigo-200/60",
+      badge: dark
+        ? "bg-indigo-500/10 text-indigo-400 border-indigo-500/20"
+        : "bg-indigo-50 text-indigo-700 border-indigo-200/60",
     },
     {
       rank: "#4",
@@ -1804,7 +1871,9 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
       correct: 6,
       total: 10,
       pct: "62%",
-      badge: dark ? "bg-blue-500/10 text-blue-400 border-blue-500/20" : "bg-blue-50 text-blue-700 border-blue-200/60",
+      badge: dark
+        ? "bg-blue-500/10 text-blue-400 border-blue-500/20"
+        : "bg-blue-50 text-blue-700 border-blue-200/60",
     },
     {
       rank: "#5",
@@ -1814,7 +1883,9 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
       correct: 5,
       total: 10,
       pct: "54%",
-      badge: dark ? "bg-amber-500/10 text-amber-400 border-amber-500/20" : "bg-amber-50 text-amber-700 border-amber-200/60",
+      badge: dark
+        ? "bg-amber-500/10 text-amber-400 border-amber-500/20"
+        : "bg-amber-50 text-amber-700 border-amber-200/60",
     },
     {
       rank: "#6",
@@ -1824,7 +1895,9 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
       correct: 4,
       total: 10,
       pct: "38%",
-      badge: dark ? "bg-rose-500/10 text-rose-400 border-rose-500/20" : "bg-rose-50 text-rose-700 border-rose-200/60",
+      badge: dark
+        ? "bg-rose-500/10 text-rose-400 border-rose-500/20"
+        : "bg-rose-50 text-rose-700 border-rose-200/60",
     },
   ];
 
@@ -1836,11 +1909,12 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
 
   return (
     <ProductWindow dark={dark} title="Classroom Quiz Analytics • Room #304964">
-      <div className={cn(
-        "p-3.5 sm:p-4.5 transition-colors duration-300",
-        dark ? "bg-[#11131E] text-slate-700" : "bg-[#F8FAFD] text-slate-800"
-      )}>
-        
+      <div
+        className={cn(
+          "p-3.5 sm:p-4.5 transition-colors duration-300",
+          dark ? "bg-[#11131E] text-slate-700" : "bg-[#F8FAFD] text-slate-800",
+        )}
+      >
         {/* Top Header Row with Badges */}
         <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between pb-1">
           <div>
@@ -1850,42 +1924,67 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
             >
               ← Back to Room
             </button>
-            <h3 className={cn(
-              "font-display text-base sm:text-lg font-bold tracking-tight mt-0.5",
-              dark ? "text-slate-100" : "text-slate-900"
-            )}>
+            <h3
+              className={cn(
+                "font-display text-base sm:text-lg font-bold tracking-tight mt-0.5",
+                dark ? "text-slate-100" : "text-slate-900",
+              )}
+            >
               Classroom Quiz Summary
             </h3>
-            <p className="text-[11px] text-slate-500">
-              Review quiz performance, participation
-            </p>
+            <p className="text-[11px] text-slate-500">Review quiz performance, participation</p>
           </div>
 
           {/* Badges on Right */}
           <div className="flex flex-wrap items-center gap-1.5">
-            <span className={cn(
-              "rounded-full px-2.5 py-0.5 text-[10px] sm:text-[11px] font-bold shadow-2xs border",
-              dark ? "bg-indigo-500/10 border-indigo-500/20 text-indigo-400" : "bg-indigo-50 border-indigo-200/60 text-indigo-700"
-            )}>
+            <span
+              className={cn(
+                "rounded-full px-2.5 py-0.5 text-[10px] sm:text-[11px] font-bold shadow-2xs border",
+                dark
+                  ? "bg-indigo-500/10 border-indigo-500/20 text-indigo-400"
+                  : "bg-indigo-50 border-indigo-200/60 text-indigo-700",
+              )}
+            >
               Room Code: 304964
             </span>
-            <span className={cn(
-              "rounded-full px-2 py-0.5 text-[10px] sm:text-[11px] font-medium shadow-2xs border",
-              dark ? "bg-[#1A1D2D] border-slate-300 text-slate-500" : "bg-white border-slate-200/80 text-slate-600"
-            )}>
-              Mode: <strong className={cn("font-semibold", dark ? "text-slate-700" : "text-slate-800")}>async</strong>
+            <span
+              className={cn(
+                "rounded-full px-2 py-0.5 text-[10px] sm:text-[11px] font-medium shadow-2xs border",
+                dark
+                  ? "bg-[#1A1D2D] border-slate-300 text-slate-500"
+                  : "bg-white border-slate-200/80 text-slate-600",
+              )}
+            >
+              Mode:{" "}
+              <strong className={cn("font-semibold", dark ? "text-slate-700" : "text-slate-800")}>
+                async
+              </strong>
             </span>
-            <span className={cn(
-              "rounded-full px-2 py-0.5 text-[10px] sm:text-[11px] font-medium shadow-2xs border",
-              dark ? "bg-[#1A1D2D] border-slate-300 text-slate-500" : "bg-white border-slate-200/80 text-slate-600"
-            )}>
-              Course Type: <strong className={cn("font-semibold", dark ? "text-slate-700" : "text-slate-800")}>NEET</strong>
+            <span
+              className={cn(
+                "rounded-full px-2 py-0.5 text-[10px] sm:text-[11px] font-medium shadow-2xs border",
+                dark
+                  ? "bg-[#1A1D2D] border-slate-300 text-slate-500"
+                  : "bg-white border-slate-200/80 text-slate-600",
+              )}
+            >
+              Course Type:{" "}
+              <strong className={cn("font-semibold", dark ? "text-slate-700" : "text-slate-800")}>
+                NEET
+              </strong>
             </span>
-            <span className={cn(
-              "rounded-full px-2 py-0.5 text-[10px] sm:text-[11px] font-medium shadow-2xs border",
-              dark ? "bg-[#1A1D2D] border-slate-300 text-slate-500" : "bg-white border-slate-200/80 text-slate-600"
-            )}>
-              Status: <strong className={cn("font-semibold", dark ? "text-emerald-400" : "text-blue-600")}>Open</strong>
+            <span
+              className={cn(
+                "rounded-full px-2 py-0.5 text-[10px] sm:text-[11px] font-medium shadow-2xs border",
+                dark
+                  ? "bg-[#1A1D2D] border-slate-300 text-slate-500"
+                  : "bg-white border-slate-200/80 text-slate-600",
+              )}
+            >
+              Status:{" "}
+              <strong className={cn("font-semibold", dark ? "text-emerald-400" : "text-blue-600")}>
+                Open
+              </strong>
             </span>
           </div>
         </div>
@@ -1899,25 +1998,25 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
                 key={card.label}
                 className={cn(
                   "rounded-lg sm:rounded-xl border p-2 sm:p-2.5 shadow-2xs flex items-center gap-2 sm:gap-2.5 transition-transform hover:-translate-y-0.5",
-                  dark ? "bg-[#1A1D2D] border-slate-300/80" : "bg-white border-slate-200/80"
+                  dark ? "bg-[#1A1D2D] border-slate-300/80" : "bg-white border-slate-200/80",
                 )}
               >
                 <div
                   className={cn(
                     "grid h-7 w-7 sm:h-8 sm:w-8 shrink-0 place-items-center rounded-lg border",
-                    card.iconColor
+                    card.iconColor,
                   )}
                 >
                   <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-[10px] font-medium text-slate-500 truncate">
-                    {card.label}
-                  </p>
-                  <p className={cn(
-                    "font-display text-xs sm:text-sm font-bold leading-tight",
-                    dark ? "text-slate-700" : "text-slate-900"
-                  )}>
+                  <p className="text-[10px] font-medium text-slate-500 truncate">{card.label}</p>
+                  <p
+                    className={cn(
+                      "font-display text-xs sm:text-sm font-bold leading-tight",
+                      dark ? "text-slate-700" : "text-slate-900",
+                    )}
+                  >
                     {card.value}
                   </p>
                 </div>
@@ -1927,18 +2026,24 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
         </div>
 
         {/* Navigation Tabs */}
-        <div className={cn(
-          "mt-2.5 flex items-center gap-4 sm:gap-6 border-b",
-          dark ? "border-slate-200" : "border-slate-200/80"
-        )}>
+        <div
+          className={cn(
+            "mt-2.5 flex items-center gap-4 sm:gap-6 border-b",
+            dark ? "border-slate-200" : "border-slate-200/80",
+          )}
+        >
           <button
             type="button"
             onClick={() => setActiveTab("overview")}
             className={cn(
               "pb-1.5 text-xs font-semibold transition-all cursor-pointer relative",
               activeTab === "overview"
-                ? (dark ? "text-indigo-400 border-b-2 border-indigo-400" : "text-indigo-600 border-b-2 border-indigo-600")
-                : (dark ? "text-slate-500 hover:text-slate-600" : "text-slate-500 hover:text-slate-800")
+                ? dark
+                  ? "text-indigo-400 border-b-2 border-indigo-400"
+                  : "text-indigo-600 border-b-2 border-indigo-600"
+                : dark
+                  ? "text-slate-500 hover:text-slate-600"
+                  : "text-slate-500 hover:text-slate-800",
             )}
           >
             Dashboard Overview
@@ -1949,8 +2054,12 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
             className={cn(
               "pb-1.5 text-xs font-semibold transition-all cursor-pointer relative",
               activeTab === "questions"
-                ? (dark ? "text-indigo-400 border-b-2 border-indigo-400" : "text-indigo-600 border-b-2 border-indigo-600")
-                : (dark ? "text-slate-500 hover:text-slate-600" : "text-slate-500 hover:text-slate-800")
+                ? dark
+                  ? "text-indigo-400 border-b-2 border-indigo-400"
+                  : "text-indigo-600 border-b-2 border-indigo-600"
+                : dark
+                  ? "text-slate-500 hover:text-slate-600"
+                  : "text-slate-500 hover:text-slate-800",
             )}
           >
             Question Analysis
@@ -1961,8 +2070,12 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
             className={cn(
               "pb-1.5 text-xs font-semibold transition-all cursor-pointer relative",
               activeTab === "responses"
-                ? (dark ? "text-indigo-400 border-b-2 border-indigo-400" : "text-indigo-600 border-b-2 border-indigo-600")
-                : (dark ? "text-slate-500 hover:text-slate-600" : "text-slate-500 hover:text-slate-800")
+                ? dark
+                  ? "text-indigo-400 border-b-2 border-indigo-400"
+                  : "text-indigo-600 border-b-2 border-indigo-600"
+                : dark
+                  ? "text-slate-500 hover:text-slate-600"
+                  : "text-slate-500 hover:text-slate-800",
             )}
           >
             Individual Responses
@@ -1974,19 +2087,22 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
           <div className="mt-3 space-y-2.5">
             {/* Middle 2 Columns: Score Distribution Chart + Score Statistics */}
             <div className="grid grid-cols-1 lg:grid-cols-[1.55fr_1fr] gap-2.5">
-              
               {/* Left: Score Distribution Chart */}
-              <div className={cn(
-                "rounded-xl border p-3 sm:p-3.5 shadow-2xs flex flex-col justify-between",
-                dark ? "bg-[#1A1D2D] border-slate-300/80" : "bg-white border-slate-200/80"
-              )}>
+              <div
+                className={cn(
+                  "rounded-xl border p-3 sm:p-3.5 shadow-2xs flex flex-col justify-between",
+                  dark ? "bg-[#1A1D2D] border-slate-300/80" : "bg-white border-slate-200/80",
+                )}
+              >
                 <div>
                   <div className="flex items-center justify-between">
                     <div>
-                      <h4 className={cn(
-                        "font-display text-xs sm:text-sm font-bold",
-                        dark ? "text-slate-100" : "text-slate-900"
-                      )}>
+                      <h4
+                        className={cn(
+                          "font-display text-xs sm:text-sm font-bold",
+                          dark ? "text-slate-100" : "text-slate-900",
+                        )}
+                      >
                         Score Distribution
                       </h4>
                       <span className="text-[9px] sm:text-[10px] font-medium text-slate-500 mt-0.5 block">
@@ -2004,7 +2120,6 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
                 {/* Bar Chart Container */}
                 <div className="mt-2.5 flex-1 flex flex-col justify-end">
                   <div className="relative h-28 sm:h-30 w-full flex items-end">
-                    
                     {/* Y-axis Ticks & Horizontal Grid lines */}
                     <div className="absolute inset-0 flex flex-col justify-between pointer-events-none">
                       {[10, 8, 6, 4, 2, 0].map((tick) => (
@@ -2012,7 +2127,9 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
                           <span className="w-3.5 text-right text-[9px] font-mono text-slate-500 shrink-0">
                             {tick}
                           </span>
-                          <div className={cn("flex-1 h-px", dark ? "bg-slate-200/50" : "bg-slate-100")} />
+                          <div
+                            className={cn("flex-1 h-px", dark ? "bg-slate-200/50" : "bg-slate-100")}
+                          />
                         </div>
                       ))}
                     </div>
@@ -2033,7 +2150,7 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
                                 "text-[9px] font-bold mb-1 transition-all",
                                 isHovered || bucket.isPeak
                                   ? "text-indigo-600 scale-110"
-                                  : "text-slate-500"
+                                  : "text-slate-500",
                               )}
                             >
                               {bucket.count}
@@ -2043,20 +2160,22 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
                               className={cn(
                                 "w-full max-w-[34px] sm:max-w-[40px] rounded-t-md transition-all duration-300 shadow-xs",
                                 dark
-                                  ? (bucket.isPeak ? "bg-gradient-to-t from-blue-500 to-indigo-400 group-hover:brightness-110 ring-2 ring-indigo-400/30" 
-                                      : (isHovered ? "bg-indigo-400" : "bg-gradient-to-t from-blue-600/80 to-indigo-500/80 group-hover:brightness-110"))
-                                  : (bucket.isPeak
+                                  ? bucket.isPeak
+                                    ? "bg-gradient-to-t from-blue-500 to-indigo-400 group-hover:brightness-110 ring-2 ring-indigo-400/30"
+                                    : isHovered
+                                      ? "bg-indigo-400"
+                                      : "bg-gradient-to-t from-blue-600/80 to-indigo-500/80 group-hover:brightness-110"
+                                  : bucket.isPeak
                                     ? "bg-indigo-600 group-hover:bg-indigo-700 ring-2 ring-indigo-400/30"
                                     : isHovered
-                                    ? "bg-indigo-600"
-                                    : "bg-indigo-500/85 group-hover:bg-indigo-600")
+                                      ? "bg-indigo-600"
+                                      : "bg-indigo-500/85 group-hover:bg-indigo-600",
                               )}
                             />
                           </div>
                         );
                       })}
                     </div>
-
                   </div>
 
                   {/* X-axis Labels */}
@@ -2066,7 +2185,7 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
                         key={bucket.range}
                         className={cn(
                           "flex-1 text-center transition-colors truncate",
-                          hoveredBucket === idx ? "font-bold text-indigo-600" : "text-slate-500"
+                          hoveredBucket === idx ? "font-bold text-indigo-600" : "text-slate-500",
                         )}
                       >
                         {bucket.range}
@@ -2081,28 +2200,54 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
               </div>
 
               {/* Right: Score Statistics */}
-              <div className={cn(
-                "rounded-xl border p-3 sm:p-3.5 shadow-2xs flex flex-col justify-between",
-                dark ? "bg-[#1A1D2D] border-slate-300/80" : "bg-white border-slate-200/80"
-              )}>
+              <div
+                className={cn(
+                  "rounded-xl border p-3 sm:p-3.5 shadow-2xs flex flex-col justify-between",
+                  dark ? "bg-[#1A1D2D] border-slate-300/80" : "bg-white border-slate-200/80",
+                )}
+              >
                 <div>
-                  <div className={cn("flex items-center gap-1.5 pb-2 border-b", dark ? "border-slate-300/50" : "border-slate-100")}>
-                    <BarChart3 className={cn("h-3.5 w-3.5", dark ? "text-indigo-400" : "text-indigo-600")} />
-                    <h4 className={cn("font-display text-xs sm:text-sm font-bold", dark ? "text-slate-100" : "text-slate-900")}>
+                  <div
+                    className={cn(
+                      "flex items-center gap-1.5 pb-2 border-b",
+                      dark ? "border-slate-300/50" : "border-slate-100",
+                    )}
+                  >
+                    <BarChart3
+                      className={cn("h-3.5 w-3.5", dark ? "text-indigo-400" : "text-indigo-600")}
+                    />
+                    <h4
+                      className={cn(
+                        "font-display text-xs sm:text-sm font-bold",
+                        dark ? "text-slate-100" : "text-slate-900",
+                      )}
+                    >
                       Score Statistics
                     </h4>
                   </div>
 
-                  <div className={cn("mt-1 divide-y", dark ? "divide-slate-700/50" : "divide-slate-100/90")}>
+                  <div
+                    className={cn(
+                      "mt-1 divide-y",
+                      dark ? "divide-slate-700/50" : "divide-slate-100/90",
+                    )}
+                  >
                     {scoreStats.map((st) => (
                       <div
                         key={st.label}
                         className="flex items-center justify-between py-1.5 text-[11px]"
                       >
-                        <span className={cn("font-medium", dark ? "text-slate-500" : "text-slate-600")}>
+                        <span
+                          className={cn("font-medium", dark ? "text-slate-500" : "text-slate-600")}
+                        >
                           {st.label}
                         </span>
-                        <span className={cn("font-bold font-mono", dark ? "text-slate-700" : "text-slate-900")}>
+                        <span
+                          className={cn(
+                            "font-bold font-mono",
+                            dark ? "text-slate-700" : "text-slate-900",
+                          )}
+                        >
                           {st.value}
                         </span>
                       </div>
@@ -2110,42 +2255,65 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
                   </div>
                 </div>
 
-                <div className={cn(
-                  "mt-2.5 rounded-lg border px-2.5 py-1.5 text-[10px] flex items-center justify-between",
-                  dark ? "bg-indigo-900/20 border-indigo-500/20 text-indigo-200" : "bg-indigo-50/60 border-indigo-100 text-indigo-900"
-                )}>
+                <div
+                  className={cn(
+                    "mt-2.5 rounded-lg border px-2.5 py-1.5 text-[10px] flex items-center justify-between",
+                    dark
+                      ? "bg-indigo-900/20 border-indigo-500/20 text-indigo-200"
+                      : "bg-indigo-50/60 border-indigo-100 text-indigo-900",
+                  )}
+                >
                   <span>Batch Completion:</span>
-                  <strong className={cn("font-bold", dark ? "text-indigo-400" : "text-indigo-700")}>27 of 30 (90.0%)</strong>
+                  <strong className={cn("font-bold", dark ? "text-indigo-400" : "text-indigo-700")}>
+                    27 of 30 (90.0%)
+                  </strong>
                 </div>
               </div>
-
             </div>
 
             {/* Bottom 2 Columns: Individual Score Summary + Not Started */}
             <div className="grid grid-cols-1 lg:grid-cols-[1.55fr_1fr] gap-2.5">
-              
               {/* Left: Individual Score Summary */}
-              <div className={cn(
-                "rounded-xl border p-3 sm:p-3.5 shadow-2xs flex flex-col justify-between",
-                dark ? "bg-[#1A1D2D] border-slate-300/80" : "bg-white border-slate-200/80"
-              )}>
+              <div
+                className={cn(
+                  "rounded-xl border p-3 sm:p-3.5 shadow-2xs flex flex-col justify-between",
+                  dark ? "bg-[#1A1D2D] border-slate-300/80" : "bg-white border-slate-200/80",
+                )}
+              >
                 <div>
-                  <div className={cn("flex items-center justify-between pb-2 border-b", dark ? "border-slate-300/50" : "border-slate-100")}>
+                  <div
+                    className={cn(
+                      "flex items-center justify-between pb-2 border-b",
+                      dark ? "border-slate-300/50" : "border-slate-100",
+                    )}
+                  >
                     <div className="flex items-center gap-1.5">
-                      <Trophy className={cn("h-3.5 w-3.5", dark ? "text-indigo-400" : "text-indigo-600")} />
-                      <h4 className={cn("font-display text-xs sm:text-sm font-bold", dark ? "text-slate-100" : "text-slate-900")}>
+                      <Trophy
+                        className={cn("h-3.5 w-3.5", dark ? "text-indigo-400" : "text-indigo-600")}
+                      />
+                      <h4
+                        className={cn(
+                          "font-display text-xs sm:text-sm font-bold",
+                          dark ? "text-slate-100" : "text-slate-900",
+                        )}
+                      >
                         Individual Score Summary
                       </h4>
                     </div>
-                    <span className="text-[10px] font-medium text-slate-500">
-                      Top 4 of 27
-                    </span>
+                    <span className="text-[10px] font-medium text-slate-500">Top 4 of 27</span>
                   </div>
 
                   <div className="overflow-x-auto mt-1">
                     <table className="w-full text-left border-collapse text-xs">
                       <thead>
-                        <tr className={cn("border-b text-[9px] font-bold uppercase tracking-wider", dark ? "border-slate-300/50 text-slate-500" : "border-slate-100 text-slate-500")}>
+                        <tr
+                          className={cn(
+                            "border-b text-[9px] font-bold uppercase tracking-wider",
+                            dark
+                              ? "border-slate-300/50 text-slate-500"
+                              : "border-slate-100 text-slate-500",
+                          )}
+                        >
                           <th className="py-1.5 pr-2">Rank</th>
                           <th className="py-1.5 px-2">Student</th>
                           <th className="py-1.5 px-2 hidden sm:table-cell">Email</th>
@@ -2153,26 +2321,47 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
                           <th className="py-1.5 pl-2 text-right">Pct %</th>
                         </tr>
                       </thead>
-                      <tbody className={cn("divide-y", dark ? "divide-slate-700/50" : "divide-slate-100/90")}>
+                      <tbody
+                        className={cn(
+                          "divide-y",
+                          dark ? "divide-slate-700/50" : "divide-slate-100/90",
+                        )}
+                      >
                         {studentScores.slice(0, 4).map((student) => (
-                          <tr key={student.email} className={cn("transition-colors", dark ? "hover:bg-slate-100/50" : "hover:bg-slate-50/60")}>
+                          <tr
+                            key={student.email}
+                            className={cn(
+                              "transition-colors",
+                              dark ? "hover:bg-slate-100/50" : "hover:bg-slate-50/60",
+                            )}
+                          >
                             <td className="py-1.5 pr-2 font-mono font-medium text-[10px] text-slate-500">
                               {student.rank}
                             </td>
-                            <td className={cn("py-1.5 px-2 font-bold text-xs", dark ? "text-slate-700" : "text-slate-900")}>
+                            <td
+                              className={cn(
+                                "py-1.5 px-2 font-bold text-xs",
+                                dark ? "text-slate-700" : "text-slate-900",
+                              )}
+                            >
                               {student.name}
                             </td>
                             <td className="py-1.5 px-2 font-mono text-[10px] text-slate-500 hidden sm:table-cell">
                               {student.email}
                             </td>
-                            <td className={cn("py-1.5 px-2 font-semibold font-mono text-xs", dark ? "text-indigo-400" : "text-indigo-600")}>
+                            <td
+                              className={cn(
+                                "py-1.5 px-2 font-semibold font-mono text-xs",
+                                dark ? "text-indigo-400" : "text-indigo-600",
+                              )}
+                            >
                               {student.score}
                             </td>
                             <td className="py-1.5 pl-2 text-right">
                               <span
                                 className={cn(
                                   "inline-block rounded border px-1.5 py-0.2 text-[10px] font-bold font-mono",
-                                  student.badge
+                                  student.badge,
                                 )}
                               >
                                 {student.pct}
@@ -2185,11 +2374,21 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
                   </div>
                 </div>
 
-                <div className={cn("pt-2 flex justify-end border-t mt-1", dark ? "border-slate-300/50" : "border-slate-100/80")}>
+                <div
+                  className={cn(
+                    "pt-2 flex justify-end border-t mt-1",
+                    dark ? "border-slate-300/50" : "border-slate-100/80",
+                  )}
+                >
                   <button
                     type="button"
                     onClick={() => setActiveTab("responses")}
-                    className={cn("text-[10px] font-semibold transition-colors cursor-pointer", dark ? "text-indigo-400 hover:text-indigo-300" : "text-indigo-600 hover:text-indigo-800")}
+                    className={cn(
+                      "text-[10px] font-semibold transition-colors cursor-pointer",
+                      dark
+                        ? "text-indigo-400 hover:text-indigo-300"
+                        : "text-indigo-600 hover:text-indigo-800",
+                    )}
                   >
                     View all 27 responses →
                   </button>
@@ -2197,22 +2396,38 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
               </div>
 
               {/* Right: Not Started Section */}
-              <div className={cn(
-                "rounded-xl border p-3 sm:p-3.5 shadow-2xs flex flex-col justify-between",
-                dark ? "bg-[#1A1D2D] border-slate-300/80" : "bg-white border-slate-200/80"
-              )}>
+              <div
+                className={cn(
+                  "rounded-xl border p-3 sm:p-3.5 shadow-2xs flex flex-col justify-between",
+                  dark ? "bg-[#1A1D2D] border-slate-300/80" : "bg-white border-slate-200/80",
+                )}
+              >
                 <div>
-                  <div className={cn("flex items-center justify-between pb-2 border-b", dark ? "border-slate-300/50" : "border-slate-100")}>
+                  <div
+                    className={cn(
+                      "flex items-center justify-between pb-2 border-b",
+                      dark ? "border-slate-300/50" : "border-slate-100",
+                    )}
+                  >
                     <div className="flex items-center gap-1.5">
                       <User className="h-3.5 w-3.5 text-slate-500" />
-                      <h4 className={cn("font-display text-xs sm:text-sm font-bold", dark ? "text-slate-100" : "text-slate-900")}>
+                      <h4
+                        className={cn(
+                          "font-display text-xs sm:text-sm font-bold",
+                          dark ? "text-slate-100" : "text-slate-900",
+                        )}
+                      >
                         Not Started
                       </h4>
                     </div>
-                    <span className={cn(
-                      "text-[10px] font-medium border rounded-full px-2 py-0.2",
-                      dark ? "text-amber-400 bg-amber-500/10 border-amber-500/20" : "text-amber-600 bg-amber-50 border-amber-200/50"
-                    )}>
+                    <span
+                      className={cn(
+                        "text-[10px] font-medium border rounded-full px-2 py-0.2",
+                        dark
+                          ? "text-amber-400 bg-amber-500/10 border-amber-500/20"
+                          : "text-amber-600 bg-amber-50 border-amber-200/50",
+                      )}
+                    >
                       3 Pending
                     </span>
                   </div>
@@ -2220,18 +2435,44 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
                   <div className="overflow-x-auto mt-1">
                     <table className="w-full text-left border-collapse text-xs">
                       <thead>
-                        <tr className={cn("border-b text-[9px] font-bold uppercase tracking-wider", dark ? "border-slate-300/50 text-slate-500" : "border-slate-100 text-slate-500")}>
+                        <tr
+                          className={cn(
+                            "border-b text-[9px] font-bold uppercase tracking-wider",
+                            dark
+                              ? "border-slate-300/50 text-slate-500"
+                              : "border-slate-100 text-slate-500",
+                          )}
+                        >
                           <th className="py-1.5 pr-2">Student</th>
                           <th className="py-1.5 px-2">Email</th>
                           <th className="py-1.5 pl-2 text-right">Status</th>
                         </tr>
                       </thead>
-                      <tbody className={cn("divide-y", dark ? "divide-slate-700/50" : "divide-slate-100/90")}>
+                      <tbody
+                        className={cn(
+                          "divide-y",
+                          dark ? "divide-slate-700/50" : "divide-slate-100/90",
+                        )}
+                      >
                         {notStartedStudents.map((ns) => (
-                          <tr key={ns.email} className={cn(dark ? "hover:bg-slate-100/50" : "hover:bg-slate-50/60")}>
-                            <td className={cn("py-1.5 pr-2 font-medium text-xs", dark ? "text-slate-700" : "text-slate-800")}>{ns.name}</td>
-                            <td className="py-1.5 px-2 font-mono text-[10px] text-slate-500">{ns.email}</td>
-                            <td className="py-1.5 pl-2 text-right text-[10px] text-slate-500 whitespace-nowrap">{ns.status}</td>
+                          <tr
+                            key={ns.email}
+                            className={cn(dark ? "hover:bg-slate-100/50" : "hover:bg-slate-50/60")}
+                          >
+                            <td
+                              className={cn(
+                                "py-1.5 pr-2 font-medium text-xs",
+                                dark ? "text-slate-700" : "text-slate-800",
+                              )}
+                            >
+                              {ns.name}
+                            </td>
+                            <td className="py-1.5 px-2 font-mono text-[10px] text-slate-500">
+                              {ns.email}
+                            </td>
+                            <td className="py-1.5 pl-2 text-right text-[10px] text-slate-500 whitespace-nowrap">
+                              {ns.status}
+                            </td>
                           </tr>
                         ))}
                       </tbody>
@@ -2239,23 +2480,43 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
                   </div>
                 </div>
 
-                <div className={cn("pt-2 flex justify-between items-center border-t mt-1 text-[10px] text-slate-500", dark ? "border-slate-300/50" : "border-slate-100/80")}>
+                <div
+                  className={cn(
+                    "pt-2 flex justify-between items-center border-t mt-1 text-[10px] text-slate-500",
+                    dark ? "border-slate-300/50" : "border-slate-100/80",
+                  )}
+                >
                   <span>Need follow-up?</span>
-                  <span className={cn("font-semibold cursor-pointer", dark ? "text-indigo-400 hover:text-indigo-300" : "text-indigo-600 hover:text-indigo-800")}>
+                  <span
+                    className={cn(
+                      "font-semibold cursor-pointer",
+                      dark
+                        ? "text-indigo-400 hover:text-indigo-300"
+                        : "text-indigo-600 hover:text-indigo-800",
+                    )}
+                  >
                     Nudge all 3
                   </span>
                 </div>
               </div>
-
             </div>
-
           </div>
         )}
 
         {/* TAB 2: Question Analysis */}
         {activeTab === "questions" && (
-          <div className={cn("mt-3 rounded-xl border p-3.5 sm:p-4 shadow-2xs space-y-2.5", dark ? "bg-[#1A1D2D] border-slate-300/80" : "bg-white border-slate-200/80")}>
-            <h4 className={cn("font-display text-xs sm:text-sm font-bold mb-1", dark ? "text-slate-100" : "text-slate-900")}>
+          <div
+            className={cn(
+              "mt-3 rounded-xl border p-3.5 sm:p-4 shadow-2xs space-y-2.5",
+              dark ? "bg-[#1A1D2D] border-slate-300/80" : "bg-white border-slate-200/80",
+            )}
+          >
+            <h4
+              className={cn(
+                "font-display text-xs sm:text-sm font-bold mb-1",
+                dark ? "text-slate-100" : "text-slate-900",
+              )}
+            >
               Question-by-Question Diagnostic
             </h4>
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
@@ -2276,8 +2537,12 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
                   className={cn(
                     "rounded-lg border p-2 text-center transition-all",
                     item.status === "correct"
-                      ? (dark ? "border-blue-500/30 bg-blue-500/10 text-blue-400" : "border-blue-200 bg-blue-50/50 text-blue-800")
-                      : (dark ? "border-rose-500/30 bg-rose-500/10 text-rose-400" : "border-rose-200 bg-rose-50/50 text-rose-800")
+                      ? dark
+                        ? "border-blue-500/30 bg-blue-500/10 text-blue-400"
+                        : "border-blue-200 bg-blue-50/50 text-blue-800"
+                      : dark
+                        ? "border-rose-500/30 bg-rose-500/10 text-rose-400"
+                        : "border-rose-200 bg-rose-50/50 text-rose-800",
                   )}
                 >
                   <span className="font-bold text-xs block">{item.q}</span>
@@ -2288,8 +2553,12 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
                     className={cn(
                       "mt-1 inline-block text-[9px] font-bold px-1.5 py-0.2 rounded-full",
                       item.status === "correct"
-                        ? (dark ? "bg-blue-500/20 text-blue-300" : "bg-blue-100 text-blue-800")
-                        : (dark ? "bg-rose-500/20 text-rose-300" : "bg-rose-100 text-rose-800")
+                        ? dark
+                          ? "bg-blue-500/20 text-blue-300"
+                          : "bg-blue-100 text-blue-800"
+                        : dark
+                          ? "bg-rose-500/20 text-rose-300"
+                          : "bg-rose-100 text-rose-800",
                     )}
                   >
                     {item.acc} Correct
@@ -2302,37 +2571,88 @@ export function AnalyticsMockup({ dark = false }: { dark?: boolean }) {
 
         {/* TAB 3: Individual Responses */}
         {activeTab === "responses" && (
-          <div className={cn("mt-3 rounded-xl border p-3.5 sm:p-4 shadow-2xs space-y-3", dark ? "bg-[#1A1D2D] border-slate-300/80" : "bg-white border-slate-200/80")}>
-            <div className={cn("flex items-center justify-between pb-2 border-b", dark ? "border-slate-300/50" : "border-slate-100")}>
+          <div
+            className={cn(
+              "mt-3 rounded-xl border p-3.5 sm:p-4 shadow-2xs space-y-3",
+              dark ? "bg-[#1A1D2D] border-slate-300/80" : "bg-white border-slate-200/80",
+            )}
+          >
+            <div
+              className={cn(
+                "flex items-center justify-between pb-2 border-b",
+                dark ? "border-slate-300/50" : "border-slate-100",
+              )}
+            >
               <div>
-                <h4 className={cn("font-display text-xs sm:text-sm font-bold", dark ? "text-slate-100" : "text-slate-900")}>
+                <h4
+                  className={cn(
+                    "font-display text-xs sm:text-sm font-bold",
+                    dark ? "text-slate-100" : "text-slate-900",
+                  )}
+                >
                   Student: Kavitha R (Rank #1)
                 </h4>
                 <p className="text-[10px] text-slate-500 font-mono">
                   kavitha.r@gmail.com • Submitted in 5m 48s
                 </p>
               </div>
-              <span className={cn(
-                "rounded-full px-2.5 py-0.5 text-[11px] font-bold border",
-                dark ? "bg-blue-500/10 border-blue-500/20 text-blue-400" : "bg-blue-50 border-blue-200/60 text-blue-700"
-              )}>
+              <span
+                className={cn(
+                  "rounded-full px-2.5 py-0.5 text-[11px] font-bold border",
+                  dark
+                    ? "bg-blue-500/10 border-blue-500/20 text-blue-400"
+                    : "bg-blue-50 border-blue-200/60 text-blue-700",
+                )}
+              >
                 Score: 960 / 1000 (96%)
               </span>
             </div>
 
             <div className="grid grid-cols-2 gap-2.5 text-xs">
-              <div className={cn("rounded-lg border p-2.5", dark ? "bg-slate-100/50 border-slate-300" : "bg-slate-50 border-slate-200/70")}>
+              <div
+                className={cn(
+                  "rounded-lg border p-2.5",
+                  dark ? "bg-slate-100/50 border-slate-300" : "bg-slate-50 border-slate-200/70",
+                )}
+              >
                 <span className="text-[10px] font-bold uppercase text-slate-500">Strong Areas</span>
-                <p className={cn("font-semibold text-xs mt-0.5", dark ? "text-slate-700" : "text-slate-800")}>Biology & Physics (10/10 questions)</p>
+                <p
+                  className={cn(
+                    "font-semibold text-xs mt-0.5",
+                    dark ? "text-slate-700" : "text-slate-800",
+                  )}
+                >
+                  Biology & Physics (10/10 questions)
+                </p>
               </div>
-              <div className={cn("rounded-lg border p-2.5", dark ? "bg-indigo-500/10 border-indigo-500/20" : "bg-indigo-50/50 border-indigo-200/60")}>
-                <span className={cn("text-[10px] font-bold uppercase", dark ? "text-indigo-400" : "text-indigo-500")}>Speed Metric</span>
-                <p className={cn("font-semibold text-xs mt-0.5", dark ? "text-indigo-300" : "text-indigo-900")}>Top 5% fastest completion in batch</p>
+              <div
+                className={cn(
+                  "rounded-lg border p-2.5",
+                  dark
+                    ? "bg-indigo-500/10 border-indigo-500/20"
+                    : "bg-indigo-50/50 border-indigo-200/60",
+                )}
+              >
+                <span
+                  className={cn(
+                    "text-[10px] font-bold uppercase",
+                    dark ? "text-indigo-400" : "text-indigo-500",
+                  )}
+                >
+                  Speed Metric
+                </span>
+                <p
+                  className={cn(
+                    "font-semibold text-xs mt-0.5",
+                    dark ? "text-indigo-300" : "text-indigo-900",
+                  )}
+                >
+                  Top 5% fastest completion in batch
+                </p>
               </div>
             </div>
           </div>
         )}
-
       </div>
     </ProductWindow>
   );
@@ -2355,7 +2675,7 @@ export function UPSCInterviewSimulatorMockup() {
   const [isInterviewStarted, setIsInterviewStarted] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
   const [candidateResponse, setCandidateResponse] = useState(
-    "The primary bottleneck was the disbursement lag in untied village health funds, which caused supply stockouts despite central budget approval..."
+    "The primary bottleneck was the disbursement lag in untied village health funds, which caused supply stockouts despite central budget approval...",
   );
   const [inputMsg, setInputMsg] = useState("");
 
@@ -2397,7 +2717,6 @@ export function UPSCInterviewSimulatorMockup() {
 
       {/* Main 2-Column Body */}
       <div className="grid grid-cols-1 lg:grid-cols-[310px_1fr] divide-y lg:divide-y-0 lg:divide-x divide-white/40 min-h-[560px]">
-        
         {/* Left Column: Candidate Context */}
         <div className="p-5 sm:p-6 bg-transparent flex flex-col justify-between">
           <div>
@@ -2520,8 +2839,8 @@ export function UPSCInterviewSimulatorMockup() {
                         isActive
                           ? "font-semibold text-indigo-600"
                           : isCompleted
-                          ? "text-slate-700 font-medium"
-                          : "text-slate-500"
+                            ? "text-slate-700 font-medium"
+                            : "text-slate-500",
                       )}
                     >
                       <span
@@ -2530,8 +2849,8 @@ export function UPSCInterviewSimulatorMockup() {
                           isActive
                             ? "border-indigo-600 bg-indigo-50 text-indigo-600 font-bold"
                             : isCompleted
-                            ? "border-blue-500 bg-blue-50 text-blue-600 font-bold"
-                            : "border-slate-200 text-slate-500"
+                              ? "border-blue-500 bg-blue-50 text-blue-600 font-bold"
+                              : "border-slate-200 text-slate-500",
                         )}
                       >
                         {isCompleted ? "✓" : idx + 1}
@@ -2547,19 +2866,25 @@ export function UPSCInterviewSimulatorMockup() {
 
         {/* Right Column: Main Center Area + Chat Input */}
         <div className="bg-transparent flex flex-col justify-between p-5 sm:p-7 relative">
-          
           {/* Main Card View */}
           {!isInterviewStarted ? (
             /* Setup State: EXACT MATCH TO IMAGE 2 */
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4 }}
               className="my-auto mx-auto w-full max-w-xl rounded-2xl border border-white/60 bg-white/40 backdrop-blur-xl p-6 sm:p-8 shadow-md text-center"
             >
               {/* Balance / Scale Icon */}
-              <motion.div 
-                animate={{ scale: [1, 1.1, 1], boxShadow: ["0px 0px 0px rgba(79,70,229,0)", "0px 0px 20px rgba(79,70,229,0.3)", "0px 0px 0px rgba(79,70,229,0)"] }}
+              <motion.div
+                animate={{
+                  scale: [1, 1.1, 1],
+                  boxShadow: [
+                    "0px 0px 0px rgba(79,70,229,0)",
+                    "0px 0px 20px rgba(79,70,229,0.3)",
+                    "0px 0px 0px rgba(79,70,229,0)",
+                  ],
+                }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-[#EEF2FF] text-[#4F46E5] shadow-2xs"
               >
@@ -2574,13 +2899,14 @@ export function UPSCInterviewSimulatorMockup() {
               {/* Subtitle */}
               <p className="mt-2 text-xs sm:text-[13px] leading-relaxed text-slate-500 max-w-md mx-auto">
                 Practice with an AI-powered board that simulates the rigorous UPSC Civil Services
-                personality test. Get real-time situational, DAF-based, and current affairs questions.
+                personality test. Get real-time situational, DAF-based, and current affairs
+                questions.
               </p>
 
               {/* 2x2 Feature Grid */}
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
                 {/* 1. DAF-Based Profiling */}
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1, duration: 0.4 }}
@@ -2601,7 +2927,7 @@ export function UPSCInterviewSimulatorMockup() {
                 </motion.div>
 
                 {/* 2. 6-Stage Progressive Flow */}
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2, duration: 0.4 }}
@@ -2622,7 +2948,7 @@ export function UPSCInterviewSimulatorMockup() {
                 </motion.div>
 
                 {/* 3. Real-time Pace & Timer */}
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3, duration: 0.4 }}
@@ -2643,7 +2969,7 @@ export function UPSCInterviewSimulatorMockup() {
                 </motion.div>
 
                 {/* 4. Instant Detailed Feedback */}
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4, duration: 0.4 }}
@@ -2693,7 +3019,7 @@ export function UPSCInterviewSimulatorMockup() {
                       "rounded-xl border p-2.5 text-center transition-all bg-white",
                       member.active
                         ? "border-indigo-400 shadow-xs ring-1 ring-indigo-400/30"
-                        : "border-slate-200/80 text-slate-600"
+                        : "border-slate-200/80 text-slate-600",
                     )}
                   >
                     <div
@@ -2701,7 +3027,7 @@ export function UPSCInterviewSimulatorMockup() {
                         "mx-auto grid h-8 w-8 place-items-center rounded-full text-xs font-bold",
                         member.active
                           ? "bg-[#EEF2FF] text-[#4F46E5]"
-                          : "bg-slate-100 text-slate-500"
+                          : "bg-slate-100 text-slate-500",
                       )}
                     >
                       <UserRound className="h-4 w-4" />
@@ -2709,9 +3035,7 @@ export function UPSCInterviewSimulatorMockup() {
                     <p className="mt-1 text-[11px] font-bold text-slate-900 truncate">
                       {member.name}
                     </p>
-                    <span className="text-[9px] text-slate-500 block truncate">
-                      {member.role}
-                    </span>
+                    <span className="text-[9px] text-slate-500 block truncate">{member.role}</span>
                   </div>
                 ))}
               </div>
@@ -2723,7 +3047,10 @@ export function UPSCInterviewSimulatorMockup() {
                     Panel Question
                   </span>
                   <p className="mt-1.5 text-xs sm:text-[13px] font-medium leading-relaxed text-slate-900">
-                    &ldquo;Your DAF highlights a degree in {profile.graduationSubject} and {profile.workExperience} in {profile.hometown}. What is the most critical structural friction you see when deploying digital systems across rural panchayats?&rdquo;
+                    &ldquo;Your DAF highlights a degree in {profile.graduationSubject} and{" "}
+                    {profile.workExperience} in {profile.hometown}. What is the most critical
+                    structural friction you see when deploying digital systems across rural
+                    panchayats?&rdquo;
                   </p>
                 </div>
 
@@ -2748,7 +3075,9 @@ export function UPSCInterviewSimulatorMockup() {
                     AI Counter-Question
                   </span>
                   <p className="mt-1 text-xs font-semibold text-slate-900">
-                    &ldquo;If appointed District Magistrate, what immediate statutory mechanism would you trigger to bypass that disbursement lag while ensuring financial audit integrity?&rdquo;
+                    &ldquo;If appointed District Magistrate, what immediate statutory mechanism
+                    would you trigger to bypass that disbursement lag while ensuring financial audit
+                    integrity?&rdquo;
                   </p>
                 </div>
               </div>
@@ -2793,9 +3122,7 @@ export function UPSCInterviewSimulatorMockup() {
               Send
             </button>
           </div>
-
         </div>
-
       </div>
     </div>
   );
@@ -2807,21 +3134,53 @@ export function DashboardMockup() {
       {/* Sidebar */}
       <div className="w-[84px] bg-white/40 backdrop-blur-md border-r border-slate-2000 flex flex-col items-center py-6 gap-6 shrink-0 z-10">
         <div className="w-12 h-12 bg-white/80 rounded-xl shadow-sm flex items-center justify-center text-blue-600 border border-white">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 2L2 7L12 12L22 7L12 2Z"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M2 17L12 22L22 17"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M2 12L12 17L22 12"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
         </div>
-        
+
         <div className="flex flex-col gap-4 w-full px-3 mt-4">
           <div className="w-full aspect-square bg-blue-600 rounded-2xl flex items-center justify-center text-slate-900 shadow-md cursor-pointer hover:scale-105 transition-transform">
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+              />
             </svg>
           </div>
           {[Bot, BookOpen, Video, LayoutDashboard, FileQuestion, Trophy].map((Icon, i) => (
-            <div key={i} className="w-full aspect-square hover:bg-white hover:shadow-sm rounded-2xl flex items-center justify-center text-slate-500 hover:text-slate-700 transition-all cursor-pointer">
+            <div
+              key={i}
+              className="w-full aspect-square hover:bg-white hover:shadow-sm rounded-2xl flex items-center justify-center text-slate-500 hover:text-slate-700 transition-all cursor-pointer"
+            >
               <Icon className="w-5 h-5" />
             </div>
           ))}
@@ -2840,7 +3199,6 @@ export function DashboardMockup() {
       {/* Main Content */}
       <div className="flex-1 bg-white/60 backdrop-blur-2xl flex flex-col overflow-y-auto">
         <div className="p-8 sm:p-10 max-w-[1200px] w-full mx-auto space-y-10">
-          
           {/* Header Section */}
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
             <div>
@@ -2851,10 +3209,11 @@ export function DashboardMockup() {
                 Welcome, Abi
               </h1>
               <p className="text-slate-500 text-sm mt-2 max-w-md leading-relaxed font-medium">
-                Continue where you left off, complete your key tasks, and keep your learning streak active.
+                Continue where you left off, complete your key tasks, and keep your learning streak
+                active.
               </p>
             </div>
-            
+
             <div className="flex items-center gap-4 bg-white/80 border border-white rounded-[20px] p-5 min-w-[200px] shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)]">
               <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-100 to-amber-100 flex items-center justify-center text-orange-500 shrink-0">
                 <Flame className="w-5 h-5 fill-current" />
@@ -2869,17 +3228,52 @@ export function DashboardMockup() {
           {/* Action Cards Grid */}
           <div className="grid grid-cols-2 gap-4">
             {[
-              { title: "Rovian AI Chat", desc: "Get instant help from AI tutor with personalized feedback and 24/7 availability.", icon: Bot, color: "text-indigo-500", bg: "bg-indigo-100", btnText: "Start Asking \u2192" },
-              { title: "Learning Videos", desc: "Watch curated educational content from top instructors around the globe.", icon: Video, color: "text-emerald-500", bg: "bg-emerald-100", btnText: "Watch & Learn \u2192" },
-              { title: "Take Quiz", desc: "Test your knowledge with MCQ quizzes designed to track your progress.", icon: FileQuestion, color: "text-blue-500", bg: "bg-blue-100", btnText: "Start Quiz \u2192" },
-              { title: "Practice Test", desc: "Test your knowledge with MCQ quizzes in a timed, exam-like environment.", icon: LayoutDashboard, color: "text-orange-500", bg: "bg-orange-100", btnText: "Start Test \u2192" }
+              {
+                title: "Rovian AI Chat",
+                desc: "Get instant help from AI tutor with personalized feedback and 24/7 availability.",
+                icon: Bot,
+                color: "text-indigo-500",
+                bg: "bg-indigo-100",
+                btnText: "Start Asking \u2192",
+              },
+              {
+                title: "Learning Videos",
+                desc: "Watch curated educational content from top instructors around the globe.",
+                icon: Video,
+                color: "text-emerald-500",
+                bg: "bg-emerald-100",
+                btnText: "Watch & Learn \u2192",
+              },
+              {
+                title: "Take Quiz",
+                desc: "Test your knowledge with MCQ quizzes designed to track your progress.",
+                icon: FileQuestion,
+                color: "text-blue-500",
+                bg: "bg-blue-100",
+                btnText: "Start Quiz \u2192",
+              },
+              {
+                title: "Practice Test",
+                desc: "Test your knowledge with MCQ quizzes in a timed, exam-like environment.",
+                icon: LayoutDashboard,
+                color: "text-orange-500",
+                bg: "bg-orange-100",
+                btnText: "Start Test \u2192",
+              },
             ].map((card, i) => (
-              <div key={i} className="bg-white/80 backdrop-blur-sm border border-white shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] rounded-3xl p-6 flex flex-col transition-all hover:shadow-[0_10px_30px_-10px_rgba(37,99,235,0.15)] hover:-translate-y-1 group cursor-pointer">
-                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-5 ${card.bg} ${card.color}`}>
+              <div
+                key={i}
+                className="bg-white/80 backdrop-blur-sm border border-white shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] rounded-3xl p-6 flex flex-col transition-all hover:shadow-[0_10px_30px_-10px_rgba(37,99,235,0.15)] hover:-translate-y-1 group cursor-pointer"
+              >
+                <div
+                  className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-5 ${card.bg} ${card.color}`}
+                >
                   <card.icon className="w-6 h-6" />
                 </div>
                 <h3 className="font-bold text-slate-900 text-[15px]">{card.title}</h3>
-                <p className="text-[13px] text-slate-500 font-medium mt-2 mb-6 leading-relaxed flex-1">{card.desc}</p>
+                <p className="text-[13px] text-slate-500 font-medium mt-2 mb-6 leading-relaxed flex-1">
+                  {card.desc}
+                </p>
                 <button className="self-start px-5 py-2.5 bg-blue-50 text-blue-600 rounded-full text-xs font-bold group-hover:bg-blue-600 group-hover:text-slate-900 transition-colors">
                   {card.btnText}
                 </button>
@@ -2889,19 +3283,23 @@ export function DashboardMockup() {
 
           {/* Bottom Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-10">
-            
             {/* What's Next */}
             <div className="space-y-4">
               <div className="flex justify-between items-center">
                 <h3 className="font-bold text-slate-900 text-[15px]">What's Next</h3>
-                <a href="#" className="text-xs font-bold text-blue-600 hover:underline">View More</a>
+                <a href="#" className="text-xs font-bold text-blue-600 hover:underline">
+                  View More
+                </a>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { title: "Chapter: 5 - States of Matter" },
-                  { title: "Chapter: 6 - Thermodynamics" }
+                  { title: "Chapter: 6 - Thermodynamics" },
                 ].map((vid, i) => (
-                  <div key={i} className="border border-white bg-white/80 rounded-[20px] overflow-hidden shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] group cursor-pointer hover:shadow-[0_10px_30px_-10px_rgba(37,99,235,0.15)] transition-all flex flex-col">
+                  <div
+                    key={i}
+                    className="border border-white bg-white/80 rounded-[20px] overflow-hidden shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] group cursor-pointer hover:shadow-[0_10px_30px_-10px_rgba(37,99,235,0.15)] transition-all flex flex-col"
+                  >
                     <div className="aspect-[4/3] bg-slate-900 relative flex items-center justify-center overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent" />
                       <div className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg relative z-10">
@@ -2909,7 +3307,9 @@ export function DashboardMockup() {
                       </div>
                     </div>
                     <div className="p-4 flex-1">
-                      <p className="text-[12px] font-bold text-slate-900 leading-tight">{vid.title}</p>
+                      <p className="text-[12px] font-bold text-slate-900 leading-tight">
+                        {vid.title}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -2924,30 +3324,55 @@ export function DashboardMockup() {
                   <button className="flex items-center gap-1 text-[10px] font-bold text-slate-500 bg-white/80 border border-white px-2 py-1 rounded-md hover:bg-white shadow-sm transition-colors">
                     <RefreshCw className="w-3 h-3" /> Reload
                   </button>
-                  <span className="text-[10px] font-bold text-blue-600 bg-blue-50 border border-blue-100 px-2 py-1 rounded-md shadow-sm">152 Scheduled</span>
+                  <span className="text-[10px] font-bold text-blue-600 bg-blue-50 border border-blue-100 px-2 py-1 rounded-md shadow-sm">
+                    152 Scheduled
+                  </span>
                 </div>
               </div>
               <div className="space-y-3">
                 {[
-                  { date: "2026-08-07, 03:16 PM", chapter: "Chapter Test - 02: Chapter: 9 - Solutions" },
-                  { date: "2026-08-07, 05:09 PM", chapter: "Chapter Test - 04: Chapter: 9 - Solutions" }
+                  {
+                    date: "2026-08-07, 03:16 PM",
+                    chapter: "Chapter Test - 02: Chapter: 9 - Solutions",
+                  },
+                  {
+                    date: "2026-08-07, 05:09 PM",
+                    chapter: "Chapter Test - 04: Chapter: 9 - Solutions",
+                  },
                 ].map((test, i) => (
-                  <div key={i} className="border border-white/60 rounded-[20px] p-4 bg-white/60 backdrop-blur-sm shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] flex flex-col gap-3 relative group">
+                  <div
+                    key={i}
+                    className="border border-white/60 rounded-[20px] p-4 bg-white/60 backdrop-blur-sm shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] flex flex-col gap-3 relative group"
+                  >
                     <div className="flex justify-between items-center text-[10px] font-bold">
                       <div className="flex gap-2">
-                        <span className="text-yellow-700 bg-yellow-50 border border-yellow-100 px-2 py-0.5 rounded-md uppercase tracking-wider">Chemistry</span>
-                        <span className="text-red-600 bg-red-50 border border-red-100 px-2 py-0.5 rounded-md uppercase tracking-wider">Missed</span>
+                        <span className="text-yellow-700 bg-yellow-50 border border-yellow-100 px-2 py-0.5 rounded-md uppercase tracking-wider">
+                          Chemistry
+                        </span>
+                        <span className="text-red-600 bg-red-50 border border-red-100 px-2 py-0.5 rounded-md uppercase tracking-wider">
+                          Missed
+                        </span>
                       </div>
                       <span className="text-slate-500 font-medium">{test.date}</span>
                     </div>
-                    <h4 className="font-bold text-slate-900 text-[14px] leading-snug pr-4">{test.chapter}</h4>
+                    <h4 className="font-bold text-slate-900 text-[14px] leading-snug pr-4">
+                      {test.chapter}
+                    </h4>
                     <div className="flex items-center flex-wrap gap-x-3 gap-y-2 text-[11px] font-semibold text-slate-500 mt-1">
-                      <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> 45 Mins</span>
-                      <span className="flex items-center gap-1"><Tag className="w-3 h-3 text-orange-400" /> Async Mode</span>
-                      <span className="flex items-center gap-1"><BookOpen className="w-3 h-3 text-blue-400" /> Chapter: 9-Solutions</span>
+                      <span className="flex items-center gap-1">
+                        <Clock className="w-3 h-3" /> 45 Mins
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Tag className="w-3 h-3 text-orange-400" /> Async Mode
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <BookOpen className="w-3 h-3 text-blue-400" /> Chapter: 9-Solutions
+                      </span>
                     </div>
                     <div className="absolute inset-0 bg-white/60 backdrop-blur-[2px] rounded-[20px] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <button className="bg-slate-100 text-slate-500 border border-slate-200 font-bold text-xs px-5 py-2.5 rounded-lg cursor-not-allowed uppercase tracking-wider">Test Missed</button>
+                      <button className="bg-slate-100 text-slate-500 border border-slate-200 font-bold text-xs px-5 py-2.5 rounded-lg cursor-not-allowed uppercase tracking-wider">
+                        Test Missed
+                      </button>
                     </div>
                   </div>
                 ))}
@@ -2958,24 +3383,80 @@ export function DashboardMockup() {
             <div className="space-y-4">
               <div className="flex justify-between items-center">
                 <h3 className="font-bold text-slate-900 text-[15px]">Learning Analytics</h3>
-                <a href="#" className="text-[11px] font-bold text-blue-600 hover:underline bg-blue-50 px-2 py-1 rounded-md">This Week</a>
+                <a
+                  href="#"
+                  className="text-[11px] font-bold text-blue-600 hover:underline bg-blue-50 px-2 py-1 rounded-md"
+                >
+                  This Week
+                </a>
               </div>
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { label: "Study Hours", value: "0.5h", icon: BookOpen, color: "text-blue-600", bg: "bg-blue-100", border: "border-blue-100" },
-                  { label: "Total MCQ", value: "111", icon: CheckCircle2, color: "text-indigo-600", bg: "bg-indigo-100", border: "border-indigo-100" },
-                  { label: "Chapters", value: "17", icon: LayoutDashboard, color: "text-blue-600", bg: "bg-blue-100", border: "border-blue-100" },
-                  { label: "MCQ Remaining", value: "29", icon: Clock, color: "text-indigo-600", bg: "bg-indigo-100", border: "border-indigo-100" },
-                  { label: "Test Accuracy", value: "6.19%", icon: BarChart, color: "text-teal-600", bg: "bg-teal-100", border: "border-teal-100" },
-                  { label: "Videos Watched", value: "20", icon: PlayCircle, color: "text-teal-600", bg: "bg-teal-100", border: "border-teal-100" }
+                  {
+                    label: "Study Hours",
+                    value: "0.5h",
+                    icon: BookOpen,
+                    color: "text-blue-600",
+                    bg: "bg-blue-100",
+                    border: "border-blue-100",
+                  },
+                  {
+                    label: "Total MCQ",
+                    value: "111",
+                    icon: CheckCircle2,
+                    color: "text-indigo-600",
+                    bg: "bg-indigo-100",
+                    border: "border-indigo-100",
+                  },
+                  {
+                    label: "Chapters",
+                    value: "17",
+                    icon: LayoutDashboard,
+                    color: "text-blue-600",
+                    bg: "bg-blue-100",
+                    border: "border-blue-100",
+                  },
+                  {
+                    label: "MCQ Remaining",
+                    value: "29",
+                    icon: Clock,
+                    color: "text-indigo-600",
+                    bg: "bg-indigo-100",
+                    border: "border-indigo-100",
+                  },
+                  {
+                    label: "Test Accuracy",
+                    value: "6.19%",
+                    icon: BarChart,
+                    color: "text-teal-600",
+                    bg: "bg-teal-100",
+                    border: "border-teal-100",
+                  },
+                  {
+                    label: "Videos Watched",
+                    value: "20",
+                    icon: PlayCircle,
+                    color: "text-teal-600",
+                    bg: "bg-teal-100",
+                    border: "border-teal-100",
+                  },
                 ].map((stat, i) => (
-                  <div key={i} className={`flex items-center gap-3 p-3 rounded-2xl border ${stat.border.replace('border-', 'border-white/40 border-')} bg-white/70 backdrop-blur-sm shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] hover:shadow-md transition-shadow cursor-default`}>
-                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${stat.bg} ${stat.color}`}>
+                  <div
+                    key={i}
+                    className={`flex items-center gap-3 p-3 rounded-2xl border ${stat.border.replace("border-", "border-white/40 border-")} bg-white/70 backdrop-blur-sm shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] hover:shadow-md transition-shadow cursor-default`}
+                  >
+                    <div
+                      className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${stat.bg} ${stat.color}`}
+                    >
                       <stat.icon className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="text-[9px] font-bold text-slate-500 uppercase tracking-wider">{stat.label}</p>
-                      <p className="text-base font-extrabold text-slate-900 leading-tight">{stat.value}</p>
+                      <p className="text-[9px] font-bold text-slate-500 uppercase tracking-wider">
+                        {stat.label}
+                      </p>
+                      <p className="text-base font-extrabold text-slate-900 leading-tight">
+                        {stat.value}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -2984,7 +3465,6 @@ export function DashboardMockup() {
                 View Challenges
               </button>
             </div>
-
           </div>
         </div>
       </div>

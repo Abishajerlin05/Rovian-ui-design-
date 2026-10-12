@@ -1,5 +1,18 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpRight, GraduationCap, Menu, X, LayoutDashboard, Sparkles, BookOpen, CreditCard, Library, HelpCircle, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  ArrowUpRight,
+  GraduationCap,
+  Menu,
+  X,
+  LayoutDashboard,
+  Sparkles,
+  BookOpen,
+  CreditCard,
+  Library,
+  HelpCircle,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import { useNavigate } from "@tanstack/react-router";
 import { useEffect, useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
@@ -37,16 +50,16 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const navigate = useNavigate({ from: "/" }) as any;
+  const navigate = useNavigate();
   const go = (id: string, name: string = "") => {
     if (name) setActiveItem(name);
     setOpen(false);
-    
+
     if (name === "Pricing") {
       navigate({ to: "/pricing" });
       return;
     }
-    
+
     // If not pricing, try to scroll or go home first
     if (window.location.pathname !== "/") {
       navigate({ to: "/" }).then(() => {
@@ -66,12 +79,16 @@ export function Navbar() {
           "fixed inset-x-0 top-0 z-50 transition-all duration-300",
           scrolled || open
             ? "border-b border-border/80 bg-background/95 py-3 shadow-sm backdrop-blur-xl"
-            : "bg-transparent py-4 sm:py-6"
+            : "bg-transparent py-4 sm:py-6",
         )}
       >
         <Container className="flex items-center justify-between relative">
           <div className="flex-1 flex justify-start">
-            <button onClick={() => go("top", "")} className="flex items-center gap-2 cursor-pointer" aria-label="Rovian home">
+            <button
+              onClick={() => go("top", "")}
+              className="flex items-center gap-2 cursor-pointer"
+              aria-label="Rovian home"
+            >
               <div className="grid h-8 w-8 sm:h-9 sm:w-9 place-items-center rounded-lg bg-blue-600 text-white shadow-sm">
                 <GraduationCap className="h-5 w-5" />
               </div>
@@ -89,9 +106,9 @@ export function Navbar() {
                 onClick={() => go(targets[x] ?? "top", x)}
                 className={cn(
                   "text-sm font-semibold transition-all cursor-pointer px-4 py-2 rounded-full border",
-                  activeItem === x 
-                    ? "bg-white text-blue-700 shadow-[0_2px_10px_rgba(59,130,246,0.1)] border-blue-300" 
-                    : "text-slate-600 border-transparent hover:text-blue-900 hover:bg-blue-50/50 hover:border-blue-200 hover:shadow-sm"
+                  activeItem === x
+                    ? "bg-white text-blue-700 shadow-[0_2px_10px_rgba(59,130,246,0.1)] border-blue-300"
+                    : "text-slate-600 border-transparent hover:text-blue-900 hover:bg-blue-50/50 hover:border-blue-200 hover:shadow-sm",
                 )}
               >
                 {x}
@@ -101,12 +118,19 @@ export function Navbar() {
 
           {/* Desktop CTAs */}
           <div className="hidden lg:flex flex-1 justify-end items-center gap-3">
-            <Button asChild variant="ghost" className="text-sm font-semibold text-blue-600 hover:text-blue-700 hover:bg-blue-50">
+            <Button
+              asChild
+              variant="ghost"
+              className="text-sm font-semibold text-blue-600 hover:text-blue-700 hover:bg-blue-50"
+            >
               <a href="https://rovianai.com/" target="_blank" rel="noopener noreferrer">
                 Log in
               </a>
             </Button>
-            <Button asChild className="text-sm font-semibold bg-blue-600 hover:bg-blue-700 text-white shadow-sm rounded-full px-5">
+            <Button
+              asChild
+              className="text-sm font-semibold bg-blue-600 hover:bg-blue-700 text-white shadow-sm rounded-full px-5"
+            >
               <a href="https://rovianai.com/" target="_blank" rel="noopener noreferrer">
                 Get Started
               </a>
@@ -147,7 +171,11 @@ export function Navbar() {
                   </Button>
                 ))}
                 <div className="mt-3 grid grid-cols-2 gap-2 border-t border-border pt-3">
-                  <Button asChild variant="outline" className="hover:bg-blue-50 hover:text-blue-700 text-blue-600 border-blue-200">
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="hover:bg-blue-50 hover:text-blue-700 text-blue-600 border-blue-200"
+                  >
                     <a href="https://rovianai.com/" target="_blank" rel="noopener noreferrer">
                       Log in
                     </a>

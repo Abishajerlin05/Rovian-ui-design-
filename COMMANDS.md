@@ -27,7 +27,8 @@ Start the local development server with hot-module replacement (HMR):
 npm run dev
 # (or: bun dev)
 ```
-* Default URL: `http://localhost:3000` (or `http://localhost:5173`)
+
+- Default URL: `http://localhost:3000` (or `http://localhost:5173`)
 
 ---
 
@@ -61,6 +62,7 @@ npm run format
 ## 🐙 5. Git & GitHub Commands
 
 ### A. Initial Setup (First time pushing to GitHub)
+
 ```bash
 # 1. Initialize Git repository
 git init -b main
@@ -79,6 +81,7 @@ git push -u origin main
 ```
 
 ### B. Daily Workflow (Saving & Pushing Changes)
+
 ```bash
 # Check changed files
 git status
@@ -94,6 +97,7 @@ git push
 ```
 
 ### C. Pulling Latest Changes
+
 ```bash
 # Pull changes from GitHub
 git pull origin main
@@ -117,11 +121,11 @@ npm install
 
 ## 📋 Summary of package.json Scripts
 
-| Command | Action |
-|---|---|
-| `npm run dev` | Starts Vite + TanStack Start development server |
-| `npm run build` | Compiles production assets |
-| `npm run build:dev` | Compiles assets with development mode enabled |
-| `npm run preview` | Runs a local server to test production build |
-| `npm run lint` | Runs ESLint checks across the codebase |
-| `npm run format` | Formats all files according to Prettier rules |
+| Command             | Action                                          |
+| ------------------- | ----------------------------------------------- |
+| `npm run dev`       | Starts Vite + TanStack Start development server |
+| `npm run build`     | Compiles production assets                      |
+| `npm run build:dev` | Compiles assets with development mode enabled   |
+| `npm run preview`   | Runs a local server to test production build    |
+| `npm run lint`      | Runs ESLint checks across the codebase          |
+| `npm run format`    | Formats all files according to Prettier rules   |
